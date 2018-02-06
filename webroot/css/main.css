@@ -1,0 +1,616 @@
+/* Azul = #2196F3 */
+/* Vermelho = #FB4848 */
+
+.agenda-bloco {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding-right: 2px;
+    margin: auto;
+    padding-top: 115px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 120px;
+}
+
+.agenda-table td {
+    background-color: #d4d4d4;
+}
+
+.agenda-table table,
+.agenda-table tr,
+.agenda-table td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;:;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.agenda-table thead td {
+    border-left: 1px solid #bababa;
+}
+
+.agenda-table thead td:last-of-type {
+    border-right: 1px solid #bababa;
+}
+
+.agenda-table thead td:first-of-type,
+.agenda-table thead td:nth-of-type(2) {
+    border-left: none;
+}
+
+.agenda-table tr:nth-of-type(odd) td {
+    background-color: #f9f9f9;
+}
+
+.agenda-table tr:nth-of-type(odd) td.marcavel.hover.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.hover.saida,
+.agenda-table tr:nth-of-type(odd) td.marcavel.bloqueio.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.bloqueio.saida {
+    background-color: #f9f9f9;
+}
+
+.agenda-table thead tr:first-of-type td {
+    background-color: transparent !important;
+}
+
+.agenda-table thead tr:first-of-type td.nao-util {
+    /*background-color: #e5e5e5 !important;*/
+    color: #2196F3;
+}
+
+.agenda-table tr:nth-of-type(odd) td.marcavel.nao-util {
+    /*background-color: #eaeaea;*/
+    background-color: #e6eaf0;
+    /* background: repeating-linear-gradient( -45deg, #d1d1d1, #d1d1d1 6px, #f9f9f9 6px, #f9f9f9 12px ) */
+}
+
+.agenda-table tr:nth-of-type(even) td.marcavel.nao-util {
+    /* background-color: #d4d4d4; */
+    background-color: #c0cad9;
+    /*background: repeating-linear-gradient(-45deg,#bdbdbd,#bdbdbd 6px,#d2d2d2 6px,#d2d2d2 12px)*/
+}
+
+.agenda-table .agenda-thead tr:nth-of-type(even) td {
+    background-color: transparent !important;
+}
+
+.agenda-thead {
+    position: fixed;
+    top: 198px;
+    z-index: 999;
+    background-color: #ddd;
+    border-right: 2px solid #f2f2f2;
+}
+
+.agenda-table {
+    margin-top: 66.5px;
+}
+
+.agenda-table .center {
+    text-align: center;
+}
+
+.agenda-table .right {
+    text-align: right;
+}
+
+.agenda-table .padding {
+    padding: 0 7.5px;
+}
+
+.agenda-table {
+    width: 100%;
+}
+
+.agenda-tbody {
+    width: 100%;
+}
+
+.agenda-table td.marcavel {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #bababa;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+    /*background-color: #d4d4d4;*/
+    background-color:#d2d2d2;
+}
+
+.agenda-table td.pseudo {
+    position: relative;
+}
+
+.agenda-table td.pseudo:before {
+    content:'';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    z-index: 2;
+    background-color: #bababa;
+    top: 0;
+    left: -1px;
+}
+
+.agenda-table thead tr:last-child td {
+    border-bottom: 1px solid #bababa;
+}
+
+.agenda-table tr:last-child td {
+    border-bottom: 1px solid #bababa;
+}
+
+.agenda-table.semana .agenda-tbody tr td:nth-of-type(2) {
+    border-left: 1px solid #bababa;
+}
+
+.agenda-table.semana .agenda-tbody tr td:nth-of-type(3) {
+    border-left: 1px solid #bababa;
+}
+
+.agenda-table.semana .agenda-tbody tr td:nth-of-type(9  r) {
+    border-right: 1px solid #bababa;
+}
+
+.agenda-table td.marcavel:hover,
+.agenda-table td.marcavel.selecionada {
+    /*background-color: #bababa !important;*/
+    /*box-shadow: inset 0 0 0 1px #666;*/
+}
+
+.agenda-table td.marcavel.hover {
+    background-color: #8296b4 !important;
+}
+
+.agenda-table td.marcavel.bloqueio {
+    background-color: #FB4848 !important;
+}
+
+.agenda-table td.marcavel.hover.entrada,
+.agenda-table td.marcavel.hover.saida,
+.agenda-table td.marcavel.bloqueio.entrada,
+.agenda-table td.marcavel.bloqueio.saida {
+    background-color: #d2d2d2 !important;
+}
+
+.agenda-table tr:nth-of-type(odd) td.marcavel.hover.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.hover.saida,
+.agenda-table tr:nth-of-type(odd) td.marcavel.bloqueio.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.bloqueio.saida {
+    background-color: #f9f9f9 !important;
+}
+
+.agenda-table tr:nth-of-type(odd) td.marcavel.nao-util.hover.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.nao-util.hover.saida,
+.agenda-table tr:nth-of-type(odd) td.marcavel.nao-util.bloqueio.entrada,
+.agenda-table tr:nth-of-type(odd) td.marcavel.nao-util.bloqueio.saida {
+    background-color: #e6eaf0 !important;
+}
+
+.agenda-table tr:nth-of-type(even) td.marcavel.nao-util.hover.entrada,
+.agenda-table tr:nth-of-type(even) td.marcavel.nao-util.hover.saida,
+.agenda-table tr:nth-of-type(even) td.marcavel.nao-util.bloqueio.entrada,
+.agenda-table tr:nth-of-type(even) td.marcavel.nao-util.bloqueio.saida {
+    background-color: #c0cad9 !important;
+}
+
+.agenda-table td.marcavel .entrada {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #8296b4 !important;
+    display: none;
+}
+
+.agenda-table td.marcavel.bloqueio .entrada {
+    background-color: #FB4848 !important;
+}
+.agenda-table td.marcavel .entrada .triangulo-topo {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #8296b4 transparent transparent transparent;
+}
+
+.agenda-table td.marcavel.bloqueio .entrada .triangulo-topo {
+    border-color: #FB4848 transparent transparent transparent;
+}
+
+.agenda-table td.marcavel .entrada .triangulo-base {
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #8296b4 transparent;
+}
+
+
+.agenda-table td.marcavel.bloqueio .entrada .triangulo-base {
+    border-color: transparent transparent #FB4848 transparent;
+}
+
+.agenda-table td.marcavel .saida {
+    width: 48%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #8296b4 !important;
+    display: none;
+}
+
+.agenda-table td.marcavel.bloqueio .saida {
+    background-color: #FB4848 !important;
+}
+
+.agenda-table td.marcavel .saida .flecha {
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+    border: 0 solid #FB4848
+}
+
+.agenda-table td.marcavel .saida .flecha:after {
+    left: 100%;
+    top: 62%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-left-color: inherit;
+    border-width: 9.5px;
+    margin-top: -11.5px;
+}
+
+.agenda-table .agenda-thead tr:nth-of-type(even) td.nao-util{
+    /*background-color: #e5e5e5 !important;*/
+    color: #2196F3;
+}
+
+.agenda-table td.nao-util {
+    background-color: #e6eaf0;
+}
+
+
+.agenda-table td.marcavel.nao-util.hover.entrada,
+.agenda-table td.marcavel.nao-util.hover.saida,
+.agenda-table td.marcavel.nao-util.bloqueio.entrada,
+.agenda-table td.marcavel.nao-util.bloqueio.saida {
+    background-color: #e6eaf0 !important;
+}
+
+.agenda-table td.marcavel.entrada .entrada,
+.agenda-table td.marcavel.saida .saida {
+    display: block;
+}
+
+.agenda-table .botao1 {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.cor-txt1 {
+    color: #FB4848 !important;
+    font-weight: bold!important;
+}
+
+.mes-txt {
+    position: absolute;
+    border-left: 1px solid #bababa;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.mes-ano {
+    /*padding-top: 0;
+    padding-bottom: 5px;*/
+}
+
+.fundo-mes-ano {
+    display: block;
+    height: 22px;
+    background-color: #ddd;
+    position: fixed;
+    z-index: -1;
+    top: 179px;
+    border-right: 2px solid #f2f2f2;
+}
+
+.agenda-mes {
+    padding-left: 18px;
+}
+
+.lista-reservas {
+    list-style: none;
+}
+
+.lista-reservas li {
+    margin-left: 62.5px;
+    position: absolute;
+    cursor: pointer;
+    cursor: pointer;
+    
+}
+
+.lista-reservas li:after {
+    left: 100%;
+    top: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-left-color: inherit;
+    border-width: 7.4px;
+    margin-top: -12.5px;
+}
+
+.lista-reservas li .triangulo-topo {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #007bff transparent transparent transparent;
+}
+
+.lista-reservas li .triangulo-base {
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #007bff transparent;
+}
+
+.lista-reservas li.ativo,
+.lista-reservas-pend li.ativo,
+.lista-reservas-pend li.ativo td {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+    opacity: 0.5;
+    z-index: 99999;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.9);
+    text-align: center;
+}
+
+.content-box {
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2);
+}
+
+.valign-container {
+    height: 100%;
+}
+
+.valign-guide {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -6px;
+    width: 1px;
+    height: 100%;
+    font-size: 0;
+}
+
+.valign-element {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -2px;
+    position: relative;
+}
+
+.botao1 {
+    cursor: pointer;
+    margin-left: 57px;
+}
+
+.botao1:hover {
+    color: #2196F3;
+}
+
+.box-hover .titulo,
+.box-hover .conteudo,
+.box-hover span {
+    cursor: pointer;
+}
+
+.box-hover,
+.box-hover-move {
+    position: absolute;
+    z-index: 99999;
+    border-radius: 4px;
+    display: none;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.3);
+}
+
+.box-hover .titulo,
+.box-hover-move .titulo {
+    padding: 5px;
+    font-size: 16px;
+    background-color: #6ea3d7;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+}
+
+.box-hover .titulo .capital,
+.box-hover-move .titulo .capital {
+    text-transform: capitalize;
+}
+
+.box-hover .titulo .nome,
+.box-hover .conteudo .nome,
+.box-hover-move .titulo .nome,
+.box-hover-move .conteudo .nome {
+    text-transform: capitalize;
+}
+
+.box-hover .conteudo .nome,
+.box-hover-move .conteudo .nome {
+    padding-right: 10px;
+}
+
+.box-hover .conteudo,
+.box-hover-move .conteudo {
+    padding: 5px;
+}
+
+.box-hover .lixeira,
+.box-hover-move .lixeira {
+    width: 16px;
+    height: 16px;
+    background-image: url(../img/delete-32.png);
+    background-size: contain;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px;
+}
+
+.alocacoes-pendentes-topo {
+    display: none;
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    /*transition: height 1s ease-out;*/
+    height: 32.55px;
+    /*width: 400px;*/
+    overflow: hidden;
+    background-color: #ddd;
+}
+
+.alocacoes-pendentes-topo {
+    z-index: 10;
+}
+
+.alocacoes-pendentes-topo.aberto {
+    height: auto;
+}
+
+.alocacoes-pendentes-topo.aberto .alocacoes-pendentes {
+    height: auto !important;
+    max-height: 50vh;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.3);
+    overflow-y: scroll;
+}
+
+.alocacoes-pendentes {
+}
+
+.alocacoes-pendentes .titulo,
+.alocacoes-pendentes-topo .titulo {
+    padding: 8px 15px;
+    background-color: #ddd;
+    cursor: pointer;
+    color: red;
+}
+
+.alocacoes-pendentes .titulo img,
+.alocacoes-pendentes-topo .titulo img {
+    vertical-align: top;
+    margin-top: 3px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.alocacoes-pendentes thead td,
+.alocacoes-pendentes li td {
+    padding: 7.5px 0 0;
+    padding-left: 10px;
+}
+
+.alocacoes-pendentes li td {
+    cursor: move;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.alocacoes-pendentes li.ativo td {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.alocacoes-pendentes thead tr:last-of-type td,
+.alocacoes-pendentes li tr:last-of-type td {
+    padding-bottom: 6.5px;
+}
+
+.alocacoes-pendentes-topo thead td,
+.alocacoes-pendentes-topo li td {
+    min-width: 90px;
+    max-width: 90px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.alocacoes-pendentes-topo thead td:first-child,
+.alocacoes-pendentes-topo li td:first-child {
+    min-width: 70px;
+    max-width: 70px;
+}
+
+.alocacoes-pendentes-topo thead td:nth-child(4),
+.alocacoes-pendentes-topo li td:nth-child(4) {
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.alocacoes-pendentes-topo thead td:last-child,
+.alocacoes-pendentes-topo li td:last-child {
+    min-width: 105px;
+    max-width: 105px;
+}
+
+.alocacoes-pendentes ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.navegador-datas {
+    position: relative;
+}

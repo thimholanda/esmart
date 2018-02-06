@@ -1,0 +1,220 @@
+<?php
+
+namespace AuditStash\Model\Behavior;
+
+use ArrayObject;
+use AuditStash\Event\AuditCreateEvent;
+use AuditStash\Event\AuditDeleteEvent;
+use AuditStash\Event\AuditUpdateEvent;
+use AuditStash\Persister\ElasticSearchPersister;
+use AuditStash\PersisterInterface;
+use Cake\Core\Configure;
+use Cake\Datasource\EntityInterface;
+use Cake\Event\Event;
+use Cake\ORM\Behavior;
+use Cake\Utility\Text;
+use SplObjectStorage;
+
+/**
+ * This behavior can be used to log all the creations, modifications and deletions
+ * done to a particular table.
+ */
+class AuditLogBehavior extends Behavior
+{
+
+    /**
+     * Default configuration.
+     *
+     * @var array
+     */
+    protected $_defaultConfig = [
+        'blacklist' => ['created', 'modified'],
+        'whitelist' => []
+    ];
+
+    /**
+     * The persister object.
+     *
+     * @var PersisterInterface
+     */
+    protected $persister;
+
+    /**
+     * Returns the list of implemented events.
+     *
+     * @return array
+     */
+    public function implementedEvents()
+    {
+        return [
+            'Model.beforeSave' => 'injectTracking',
+            'Model.beforeDelete' => 'injectTracking',
+            'Model.afterSave' => 'afterSave',
+            'Model.afterDelete' => 'afterDelete',
+            'Model.afterSaveCommit' => 'afterCommit',
+            'Model.afterDeleteCommit' => 'afterCommit'
+        ];
+    }
+
+    /**
+     * Conditionally adds the `_auditTransaction` and `_auditQueue` keys to $options. They are
+     * used to track all changes done inside the same transaction.
+     *
+     * @param Cake\Event\Event The Model event that is enclosed inside a transaction
+     * @param Cake\Datasource\EntityInterface $entity The entity that is to be saved
+     * @param ArrayObject $options The options to be passed to the save or delete operation
+     * @return void
+     */
+    public function injectTracking(Event $event, EntityInterface $entity, ArrayObject $options)
+    {
+        if (!isset($options['_auditTransaction'])) {
+            $options['_auditTransaction'] = Text::uuid();
+        }
+
+        if (!isset($options['_auditQueue'])) {
+            $options['_auditQueue'] = new SplObjectStorage();
+        }
+    }
+
+    /**
+     * Calculates the changes done to the entity and stores the audit log event object into the
+     * log queue inside the `_auditQueue` key in $options.
+     *
+     * @param Cake\Event\Event The Model event that is enclosed inside a transaction
+     * @param Cake\Datasource\EntityInterface $entity The entity that is to be saved
+     * @param ArrayObject $options Options array containing the `_auditQueue` key
+     * @return void
+     */
+    public function afterSave(Event $event, EntityInterface $entity, $options)
+    {
+        debug($event);
+        exit();
+        if (!isset($options['_auditQueue'])) {
+            return;
+        }
+
+        $config = $this->_config;
+        if (empty($config['whitelist'])) {
+            $config['whitelist'] = $this->_table->schema()->columns();
+            $config['whitelist'] = array_merge(
+                $config['whitelist'],
+                $this->getAssociationProperties(array_keys($options['associated']))
+            );
+        }
+
+        $config['whitelist'] = array_diff($config['whitelist'], $config['blacklist']);
+        $changed = $entity->extract($config['whitelist'], true);
+
+        if (!$changed) {
+            return;
+        }
+
+        $original = $entity->extractOriginal(array_keys($changed));
+        $properties = $this->getAssociationProperties(array_keys($options['associated']));
+        foreach ($properties as $property) {
+            unset($changed[$property], $original[$property]);
+        }
+
+        if (!$changed || ($original === $changed && !$entity->isNew())) {
+            return;
+        }
+
+        $primary = $entity->extract((array)$this->_table->primaryKey());
+        $auditEvent = $entity->isNew() ? AuditCreateEvent::class : AuditUpdateEvent::class;
+
+        $transaction = $options['_auditTransaction'];
+        $auditEvent = new $auditEvent($transaction, $primary, $this->_table->table(), $changed, $original);
+
+        if (!empty($options['_sourceTable'])) {
+            $auditEvent->setParentSourceName($options['_sourceTable']->table());
+        }
+
+        $options['_auditQueue']->attach($entity, $auditEvent);
+    }
+
+    /**
+     * Persists all audit log events stored in the `_eventQueue` key inside $options.
+     *
+     * @param Cake\Event\Event The Model event that is enclosed inside a transaction
+     * @param Cake\Datasource\EntityInterface $entity The entity that is to be saved or deleted
+     * @param ArrayObject $options Options array containing the `_auditQueue` key
+     * @return void
+     */
+    public function afterCommit(Event $event, EntityInterface $entity, $options)
+    {
+        if (!isset($options['_auditQueue'])) {
+            return;
+        }
+
+        $events = collection($options['_auditQueue'])
+            ->map(function ($entity, $pos, $it) {
+                return $it->getInfo();
+            })
+            ->toList();
+
+        if (empty($events)) {
+            return;
+        }
+
+        $data = $this->_table->dispatchEvent('AuditStash.beforeLog', ['logs' => $events]);
+        $this->persister()->logEvents($data->data['logs']);
+    }
+
+    /**
+     * Persists all audit log events stored in the `_eventQueue` key inside $options.
+     *
+     * @param Cake\Event\Event The Model event that is enclosed inside a transaction
+     * @param Cake\Datasource\EntityInterface $entity The entity that is to be saved or deleted
+     * @param ArrayObject $options Options array containing the `_auditQueue` key
+     * @return void
+     */
+    public function afterDelete(Event $event, EntityInterface $entity, $options)
+    {
+        if (!isset($options['_auditQueue'])) {
+            return;
+        }
+        $transaction = $options['_auditTransaction'];
+        $parent = isset($options['_sourceTable']) ? $options['_sourceTable']->table() : null;
+        $primary = $entity->extract((array)$this->_table->primaryKey());
+        $auditEvent = new AuditDeleteEvent($transaction, $primary, $this->_table->table(), $parent);
+        $options['_auditQueue']->attach($entity, $auditEvent);
+    }
+
+    /**
+     * Sets the persister object to use for logging al audit events.
+     * If called if no arguments, it will return the currently configured persister.
+     *
+     * @param PersisterInterface $persister The persister object to use
+     * @return PersisterInterface The configured persister
+     */
+    public function persister(PersisterInterface $persister = null)
+    {
+        if ($persister === null && $this->persister === null) {
+            $class = Configure::read('AuditStash.persister') ?: ElasticSearchPersister::class;
+            $persister = new $class();
+        }
+
+        if ($persister === null) {
+            return $this->persister;
+        }
+        return $this->persister = $persister;
+    }
+
+    /**
+     * Helper method used to get the property names of associations for a table.
+     *
+     * @param array $associated Whitelist of associations to look for
+     * @return array List of property names
+     */
+    protected function getAssociationProperties($associated)
+    {
+        $associations = $this->_table->associations();
+        $result = [];
+
+        foreach ($associated as $name) {
+            $result[] = $associations->get($name)->property();
+        }
+
+        return $result;
+    }
+}

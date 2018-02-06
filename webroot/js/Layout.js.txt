@@ -1,0 +1,386 @@
+/**
+ * Função para esconder o menu principal na horizontal a esquerda
+ * 
+ * @returns {undefined}
+ */
+function menu_esconde(){
+    /*Comandos para a loading*/
+    $("#loading").addClass("loading_inner");
+    
+    /*Comandos para a div logo*/
+    $("div.logo label2").css({"display":"none"});
+    $("div.logo label1").css({"display":"block"});
+    
+    /*Comandos para a div atalho*/
+    $("a.atalho_inner").css({"display":"none"});
+    $("a.menu_escd").css({"display":"none"});
+    $("a.menu_exib").css({"display":"block"});
+    
+    /*Comandos para a div atalho*/
+    $("ul#nav li a.m_pri").css({"display":"block"});
+    $("ul#nav li a.m_seg").css({"display":"none"});
+        
+    if(window.innerWidth <= 1024){
+        /*Comandos para a div logo*/
+        $("div.header-padrao div#pri").addClass("col-xs-1");
+        $("div.header-padrao div#pri").removeClass("col-xs-2");
+        $("div.header-padrao div#seg").addClass("col-xs-3-5");
+        $("div.header-padrao div#seg").removeClass("col-xs-3");
+        $("div.header-padrao div#ter").addClass("col-xs-3-5");/*.col-xs-5").addClass("col-xs-6");*/
+        $("div.header-padrao div#ter").removeClass("col-xs-3");/*.col-xs-5").removeClass("col-xs-5");*/
+        /*Comandos para a div atalho*/
+        $("div#atl").addClass("col-xs-1");
+        $("div#atl").removeClass("col-xs-2");
+        //$("div#atl div#atalhos").css({"width":"40px"});
+        /*Comandos para a div content*/
+        $("div#atl2").addClass("col-xs-11");
+        $("div#atl2").removeClass("col-xs-10");
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"7.3%"});
+        $("#content").css({"width":"90.7%"});
+    } else {    
+        /*Comandos para a div logo*/
+        $("div.header-padrao div#pri").addClass("col-xs-0-5");
+        $("div.header-padrao div#pri").removeClass("col-xs-2");
+        $("div.header-padrao div#seg").addClass("col-xs-3-5");
+        $("div.header-padrao div#seg").removeClass("col-xs-3");
+        $("div.header-padrao div#ter").addClass("col-xs-4");/*.col-xs-5").addClass("col-xs-6-5");*/
+        $("div.header-padrao div#ter").removeClass("col-xs-3");/*.col-xs-5").removeClass("col-xs-5");*/
+        /*Comandos para a div atalho*/
+        $("div#atl").addClass("col-xs-0-5");
+        $("div#atl").removeClass("col-xs-2");
+        //$("div#atl div#atalhos").css({"width":"40px"});
+        /*Comandos para a div content*/
+        $("div#atl2").addClass("col-xs-11-5");
+        $("div#atl2").removeClass("col-xs-10");
+        /*Comandos para a div menu e dic content*/
+        $("#menu").css({"width":"3.75%"});
+        $("#content").css({"width":"95.18%"});
+    }
+    
+    if(window.innerWidth > 1024 && window.innerWidth <= 1280){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"3.5%"});
+        $("#content").css({"width":"94.9%"});
+    }
+    if(window.innerWidth > 1280 && window.innerWidth <= 1366){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"3.6%"});
+        $("#content").css({"width":"94.94%"});
+    }
+    if(window.innerWidth > 1366 && window.innerWidth <= 1440){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"3.6%"});
+        $("#content").css({"width":"95%"});
+    }
+    if(window.innerWidth > 1440 && window.innerWidth <= 1600){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"3.7%"});
+        $("#content").css({"width":"95.05%"});
+    }
+}
+
+/**
+ * Função para exibir o menu principal na horizontal a direita
+ * 
+ * @returns {undefined}
+ */
+function menu_exibe(){
+    /*Comandos para a loading*/
+    $("#loading").removeClass("loading_inner");
+    
+    /*Comandos para a div logo*/
+    $("div.logo label2").css({"display":"block"});
+    $("div.logo label1").css({"display":"none"});
+    
+    /*Comandos para a div atalho*/
+    $("a.atalho_inner").css({"display":"block"});
+    $("a.menu_escd").css({"display":"block"});
+    $("a.menu_exib").css({"display":"none"});
+    
+    /*Comandos para a div atalho*/
+    $("ul#nav li a.m_pri").css({"display":"none"});
+    $("ul#nav li a.m_seg").css({"display":"block"});
+    
+    if(window.innerWidth <= 1024){
+        /*Comandos para a div logo*/
+        $("div.header-padrao div#pri").addClass("col-xs-2");
+        $("div.header-padrao div#pri").removeClass("col-xs-1");
+        $("div.header-padrao div#seg").addClass("col-xs-3");
+        $("div.header-padrao div#seg").removeClass("col-xs-3-5");
+        $("div.header-padrao div#ter").addClass("col-xs-3");/*.col-xs-6").addClass("col-xs-5");*/
+        $("div.header-padrao div#ter").removeClass("col-xs-3-5");/*.col-xs-6").removeClass("col-xs-6");*/
+        /*Comandos para a div atalho*/
+        $("div#atl").addClass("col-xs-2");
+        $("div#atl").removeClass("col-xs-1");
+        /*Comandos para a div content*/
+        $("div#atl2").addClass("col-xs-10");
+        $("div#atl2").removeClass("col-xs-11");
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"15.6%"});
+        $("#content").css({"width":"82.4%"});
+    } else {
+        /*Comandos para a div logo*/
+        $("div.header-padrao div#pri").addClass("col-xs-2");
+        $("div.header-padrao div#pri").removeClass("col-xs-0-5");
+        $("div.header-padrao div#seg").addClass("col-xs-3");
+        $("div.header-padrao div#seg").removeClass("col-xs-3-5");
+        $("div.header-padrao div#ter").addClass("col-xs-3");/*.col-xs-6-5").addClass("col-xs-5");*/
+        $("div.header-padrao div#ter").removeClass("col-xs-4");/*.col-xs-6-5").removeClass("col-xs-6-5");*/
+        /*Comandos para a div atalho*/
+        $("div#atl").addClass("col-xs-2");
+        $("div#atl").removeClass("col-xs-0-5");
+        /*Comandos para a div content*/
+        $("div#atl2").addClass("col-xs-10");
+        $("div#atl2").removeClass("col-xs-11-5");
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"16.1%"});
+        $("#content").css({"width":"82.86%"});
+    }
+    
+    if(window.innerWidth > 1024 && window.innerWidth <= 1280){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"15.8%"});
+        $("#content").css({"width":"82.6%"});
+    }
+    if(window.innerWidth > 1280 && window.innerWidth <= 1360){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"15.9%"});
+        $("#content").css({"width":"82.65%"});
+    }
+    if(window.innerWidth > 1360 && window.innerWidth <= 1440){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"15.9%"});
+        $("#content").css({"width":"82.67%"});
+    }
+    if(window.innerWidth > 1440 && window.innerWidth <= 1600){
+        /*Comandos para a div menu e div content*/
+        $("#menu").css({"width":"16%"});
+        $("#content").css({"width":"82.75%"});
+    }
+}
+
+function totalwidth(x){
+    if($(window.innerWidth <= 1920)){
+        
+    }
+}
+
+/**
+ * Função para deixar aberto os filhos do pai selecionado
+ * 
+ * @returns {undefined}
+ */
+$(document).ready(function () {
+     $("ul#nav li.li_cliente a").click(function () {         
+        $("ul#nav li.li_cliente").addClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });    
+    $("ul#nav li.li_reserva a").click(function () {
+        $("ul#nav li.li_reserva").addClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_reserva ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });
+    $("ul#nav li.li_conta a").click(function () {
+        $("ul#nav li.li_conta").addClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });
+    $("ul#nav li.li_pagamento a").click(function () {
+        $("ul#nav li.li_pagamento").addClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });
+    $("ul#nav li.li_estadia a").click(function () {
+        $("ul#nav li.li_estadia").addClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });
+    $("ul#nav li.li_servico a").click(function () {
+        $("ul#nav li.li_servico").addClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao").removeClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+    });
+    $("ul#nav li.li_comunicacao a").click(function () {
+        $("ul#nav li.li_comunicacao").addClass("selected");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li.li_comunicacao ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_comunicacao ul.sub-nav li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner2");
+        
+        $("ul#nav li.li_reserva").removeClass("selected");
+        $("ul#nav li.li_reserva ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_conta").removeClass("selected");
+        $("ul#nav li.li_conta ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_pagamento").removeClass("selected");
+        $("ul#nav li.li_pagamento ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_estadia").removeClass("selected");
+        $("ul#nav li.li_estadia ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_servico").removeClass("selected");
+        $("ul#nav li.li_servico ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li.li_cliente").removeClass("selected");
+        $("ul#nav li.li_cliente ul.sub-nav li a").removeClass("select_inner");
+    });
+});
+
+/*
+$(document).ready(function () {
+    $("ul#nav > li").click(function () {
+        $("ul#nav > li").removeClass("selected");
+        $(this).addClass("selected");
+        $("ul#nav li ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-0-5 ul#nav li ul.sub-nav li a").removeClass("select_inner");
+        $(".col-xs-1 ul#nav li ul.sub-nav li a").removeClass("select_inner");
+        $("ul#nav li ul.sub-nav > li a").parent().children().first().addClass("select_inner");
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").removeClass("visible");
+    });
+    
+});*/    
+
+/**
+ * Função para exibir qual filho esta selecionado
+ * 
+ * @returns {undefined}
+ */
+$(document).ready(function () {
+    $("ul#nav li ul.sub-nav li a").click(function () {
+        $("ul#nav li ul.sub-nav li a").removeClass("select_inner");
+        $(this).addClass("select_inner");
+    });
+});
+
+/**
+ * Função para exibir filhos do tercerio nivel
+ * 
+ * @returns {undefined}
+ */
+$(document).ready(function () {    
+    $("ul#nav li ul.sub-nav li.select-dropdown a").click(function (){
+        $("ul#nav li.selected ul.sub-nav li.select-dropdown ul.sub-dropdow").addClass("visible");
+        $("ul#nav li ul.sub-nav li.select-dropdown a").removeClass("select_inner");
+        $("ul#nav li ul.sub-nav li.select-dropdown ul.sub-dropdow li a").removeClass("select_inner");
+        $("ul#nav li ul.sub-nav li.select-dropdown ul.sub-dropdow li a").parent().children().first().addClass("select_inner");
+        $(this).addClass("select_inner2");
+        //$("ul#nav li ul.sub-nav li.select-dropdown a").addClass("teste");
+        //$(this).css({"text-shadow":"0px 0px 10px #ffffff;","background":"#ffffff"});
+        //$(this).addClass("foi-selecionado");
+    });
+});
+
+/**
+ * Função para exibir qual filho do terceiro nivel esta selecionado
+ * 
+ * @returns {undefined}
+ */
+$(document).ready(function () {
+    $("ul#nav li ul.sub-nav li.select-dropdown ul.sub-dropdow li a").click(function () {
+        $("ul#nav li ul.sub-nav li.select-dropdown ul.sub-dropdow li a").removeClass("select_inner");
+        $(this).addClass("select_inner");
+        $("ul#nav li ul.sub-nav li.select-dropdown > a").addClass("select_inner2");
+    });
+});

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "cakephp/elastic-search": "^0.3.4"
+    }
+}
