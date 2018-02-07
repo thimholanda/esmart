@@ -463,3 +463,91 @@ a.disabled_link_checkout .dialogo_inner, a.disabled_link_checkout_painel .dialog
 a.link_ativo:hover{
     font-weight:bold!important;
 }
+
+.es-room-title{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.es-featured-row{
+    display: block;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #eee;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+}
+
+.es-account-container{
+    margin-bottom: 20px;
+}
+
+.es-panel-accordion{
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.es-accordion-conta{
+    background-color: #bbb !important;
+}
+
+.es-panel-accordion label{
+    margin: 0;
+}
+
+.es-inner-row{
+    display: inline-block;
+    vertical-align: top;
+    background: white;
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.es-table_cliclipes th{
+    background: #ddd;
+    padding: 5px 5px;
+    border: 1px solid #ccc;
+}
+
+.es-table-total td{
+    background-color: #c0cad9;
+}
+
+.es-btn-right{
+    display: block;
+    float: right;
+    width: auto;
+    padding: 0 10px;
+}
+
+.es-btn-top{
+    cursor: pointer;
+    font-size: 22px;
+    padding: 0 3px;
+    margin: 0;
+}
+
+.es-btn-right + .es-btn-right{
+    margin-right: 10px;
+}
+
+.es-container-total{
+    background: #eee;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.es-container-total-conta{
+    border: none;
+}
+

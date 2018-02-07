@@ -15,7 +15,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
     ?>
     <input type="hidden" id="quarto_itens" value="<?= implode("|", array_keys($quarto_itens)) ?>"
            <div style="margin-top:100px">
-        <div class="cabecalho_conta" style="padding: 8px; border: 1px solid #e5e5e5;">
+        <div class="cabecalho_conta" style="padding-bottom: 8px;">
             <div class="row">
                 <!-- <div class="col-md-3">
                      <label><b><?= $rot_condadtit ?> <?= $documento_numero_selecionado ?></b></label>
@@ -102,7 +102,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                 $checkout_geral_habilitado = 0;
             }
             ?>
-            <div class="form-group col-md-12" style="border: 1px solid #e5e5e5;">
+            <div class="es-account-container">
                 <input type="hidden" name="total_pago_<?= $quarto_item ?>" id="total_pago_<?= $quarto_item ?>" value="<?= (-1) * $total_pago[$quarto_item] ?>" />
                 <input <?php if ($geracever_conitecri == '0') echo 'disabled' ?> type="button" style="display:none" id="conitecri_button_<?= $quarto_item ?>" class="conitecri" aria-quarto-item='<?= $quarto_item ?>'
                                                                                  aria-modo-exibicao="<?= $modo_exibicao ?>" aria-inicial-data="<?= $cabecalho_conta[$dados_resdocpes_quarto_item]['inicial_data'] ?>" 
@@ -115,52 +115,35 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                        aria-redirect-page='<?= $redirect_page ?>' aria-back-page='<?= $back_page ?>' aria-documento-numero='<?= $documento_numero_selecionado ?>'
                        aria-evento='<?= $evento ?>' aria-pagamento-total="0" />
 
-                <button type="button" class="accordion-conta <?php if (isset($opened_acordions) && (strpos($opened_acordions, $quarto_item . "|") !== false)) echo 'active' ?>" aria-accordion-item="<?= $quarto_item ?>">
-                    <?= $quarto_item ?>) <?= $rot_resquacod ?> 
-                    <?php if ($cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != null && $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != "") echo $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] . ' - ' ?><?= $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['nome'] . ' ' . $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['sobrenome'] ?>
-                    <?php if ($checkout_habilitado) { ?>
-                        <div class="row col-md-2 pull-right">
-                            <input class="form-control btn-primary" type="button" onclick="$('#checkout_todos_quartos').val(0);
-                                                $('#quarto_item_checkout').val(<?= $quarto_item ?>);
-                                                estchocri()" value="<?= $rot_gerchotit ?>">
-                        </div>
-                    <?php } ?>
-                    <div class="row col-md-1 pull-right" style="padding-left: 10px;padding-right: 7px;margin-right: 1px;">
-                        <input class="form-control btn-default" type="button" value="<?= $rot_gerimptit ?>" 
-                               onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
-                                               $('#conta_pdf_quarto_item_<?= $quarto_item ?>').css('display', 'block');
-                                               PrintElem('conresexi_pdf')">
-                    </div>   
-                    <?php if ($pagamento_habilitado) { ?>
-                        <div class="row col-md-1 pull-right" style="padding-left: 10px;padding-right: 2px;margin-right: 1px;">
-                            <input class="form-control btn-primary" type="button" value="<?= $rot_conpagbot ?>" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" >
-                        </div>
-                    <?php } ?>
-                    <?php if ($adicionar_item_habilitado) { ?>
-                        <div class="row col-md-2 pull-right">
-                            <input <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="form-control btn-primary" type="button" value="<?= $rot_concribot ?>" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()" />
-                        </div>
-                    <?php } ?>
+                <button type="button" class="accordion-conta exibi_info  es-accordion-conta <?php if (isset($opened_acordions) && (strpos($opened_acordions, $quarto_item . "|") !== false)) echo 'active' ?>" aria-accordion-item="<?= $quarto_item ?>">
 
-                    <div class="row col-md-2 pull-right" style="width:160px">
-                        A pagar agora <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?>
-                    </div>
+                    <a></a>
+                    <?php #echo "{$quarto_item})"; ?>
 
-                    <div class="row col-md-2 pull-right" style="width:200px">
-                        <?= $rot_convalpag ?> <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total[$quarto_item]) ?>
-                    </div>
-                    <div class="row col-md-2 pull-right" style="width:160px">
-                        <?= $rot_contotpag ?> <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_pago[$quarto_item]) ?>
-                    </div>
+                    <b class="es-room-title"><b><?= $rot_resquacod ?> <?php if ($cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != null && $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != "") echo $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo']; ?></b> - <?= $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['nome'] . ' ' . $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['sobrenome'] ?></b>
 
-                    <div class="row col-md-2 pull-right" style="width:160px">
-                        Despesas <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?>
-                    </div>
+
+                        <span title="imprimir" class="es-btn-right es-btn-top" type="button"
+                           onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
+                                           $('#conta_pdf_quarto_item_<?= $quarto_item ?>').css('display', 'block');
+                                           PrintElem('conresexi_pdf')"><i class="fa fa-print"></i>
+                        </span>
+
+                        <?php if ($pagamento_habilitado) { ?>
+
+                        <span title="pagamento" class="es-btn-right es-btn-top" type="button" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" ><i class="fa fa-credit-card"></i></span>
+
+                        <?php } ?>
+                        <?php if ($adicionar_item_habilitado) { ?>
+
+                        <span title="adicionar item" <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="es-btn-right es-btn-top" type="button" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()"><i class="fa fa-plus-circle"></i></span>
+
+                        <?php } ?>
 
 
                 </button>
 
-                <div class="panel-accordion col-md-12 
+                <div class="panel-accordion es-panel-accordion col-md-12
                      <?php if (isset($opened_acordions) && (strpos($opened_acordions, $quarto_item . "|") !== false)) echo 'show' ?>" >
                          <?php
                          //Checa se a data atual é maior que a data limite de cancelamento
@@ -168,13 +151,13 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                          if (Util::comparaDatas($cabecalho_conta[$dados_resdocpes_quarto_item]['cancelamento_limite'], $geral->geragodet()) == -1)
                              $color = 'red';
                          ?>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label><b>Data: </b></label> 
+                    <div class="row es-inner-row" style="margin-bottom: 10px;">
+                        <div class="col-md-12">
+                            <label><b>Data: </b></label>
                             <?php
                             $datas = explode("|", $cabecalho_conta[$dados_resdocpes_quarto_item]['datas']);
                             ?>
-                            <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['inicial_data'], 'd/m/Y H:i') ?> - 
+                            <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['inicial_data'], 'd/m/Y H:i') ?> -
                             <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['final_data'], 'd/m/Y H:i') ?>
                             (<?= sizeof($datas) ?> <?php
                             if (sizeof($datas) > 1)
@@ -183,11 +166,33 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                                 echo 'diária';
                             ?>)
                         </div>
+
+                        <div class="col-md-12">
+                            <span class="es-featured-row row">
+                                <!-- Dados da reserva -->
+                                <div class="col-md-3">
+                                <label><b>A pagar agora:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?>
+                                </div>
+
+                                <div class="col-md-3">
+                                <label><b><?= $rot_convalpag ?>:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total[$quarto_item]) ?>
+                                </div>
+                                <div class="col-md-3">
+                                <label><b><?= $rot_contotpag ?>:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago[$quarto_item]) ?>
+                                </div>
+
+                                <div class="col-md-3">
+                                <lable><b>Despesas:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?>
+                                </div>
+                            </span>
+                        </div>
+
                         <?php if ($tela == 'resdoccan') { ?>
                             <div class="col-md-3" style="color:<?= $color ?>"><label><b><?= $rot_reslimcan ?>: </b> </label> <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['cancelamento_limite'], 'd/m/Y H:i') ?></div>
                         <?php } ?>
                     </div>
-                    <table class="table_cliclipes">
+
+                    <table class="table_cliclipes es-table_cliclipes">
                         <thead>
                             <tr>
                                 <th><?= $rot_geritetit ?></th>  
@@ -252,12 +257,40 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                         }
                         ?>
 
-                        <tr>
+                        <tr class="es-table-total">
                             <td colspan="4"><?php echo "<b style='font-size: 12px;'>" . $rot_gertottit . "</b>"; ?></td>
                             <td><?php echo "<b style='font-size: 12px;'>" . $geral->gersepatr($total[$quarto_item]) . "</b>"; ?>
                             </td>
                         </tr> 
                     </table>
+
+                    <div class="row es-inner-row" style="margin: 0; margin-top: 10px; padding:10px; ">
+
+                            <?php if ($checkout_habilitado) { ?>
+                            <div class="row col-md-2 pull-right">
+                            <input class="form-control btn-primary" type="button" onclick="$('#checkout_todos_quartos').val(0);
+                                                $('#quarto_item_checkout').val(<?= $quarto_item ?>);
+                                                estchocri()" value="<?= $rot_gerchotit ?>">
+                            </div>
+                            <?php } ?>
+                            <button class="form-control btn-default es-btn-right" type="button"
+                               onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
+                                               $('#conta_pdf_quarto_item_<?= $quarto_item ?>').css('display', 'block');
+                                               PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?>
+                            </button>
+                            <?php if ($pagamento_habilitado) { ?>
+
+                            <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" ><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
+
+                            <?php } ?>
+                            <?php if ($adicionar_item_habilitado) { ?>
+
+                            <button <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="form-control btn-primary es-btn-right" type="button" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()"><i class="fa fa-plus-circle"></i> <?= $rot_concribot ?></button>
+
+                            <?php } ?>
+
+                        </div>
+
 
                     <!--Exibição de pagamentos pre autorizados, so exibe se o total for maior que 0 -->
                     <?php
@@ -315,7 +348,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
             $total_a_pagar_agora_geral += $total_a_pagar_agora[$quarto_item];
         }
         ?>
-        <div class="form-group col-md-12"  style="border: 1px solid #e5e5e5;">
+        <div class="es-container-total-conta">
             <input type="button" style="display:none" id="conpagcri_button_all" class="conpagcri" aria-quarto-item='1' aria-form-id='<?= $form_id ?>'  aria-modo-exibicao="<?= $modo_exibicao ?>" 
                    aria-redirect-page='<?= $redirect_page ?>' aria-back-page='<?= $back_page ?>' aria-documento-numero='<?= $documento_numero_selecionado ?>'
                    aria-evento='<?= $evento ?>' aria-pagamento-total="1"
@@ -323,44 +356,42 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                    aria-pagante-nome='<?= $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['nome'] . ' ' . $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['sobrenome'] ?>'
                    aria-pagante-cpf-cnpj='<?= isset($cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['cpf']) ? $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['cpf'] : $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['cnpj'] ?>'  />
 
-            <button type="button" class="accordion-conta"><?= $rot_gertottit ?>
+            <button type="button" class="accordion-conta es-accordion-conta">
+            <div class="es-room-title"><b><?= $rot_gertottit ?></b></div>
+            </button>
+            <div class="es-container-total">
                 <?php if ($checkout_geral_habilitado) { ?>
                     <div class="row col-md-2 pull-right">
-                        <input class="form-control btn-primary" type="button" onclick="$('#checkout_todos_quartos').val(1);
-                                        estchocri()" 
-                               value="<?= $rot_gerchotit ?>">
+                        <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#checkout_todos_quartos').val(1);
+                                        estchocri()"
+                               ><?= $rot_gerchotit ?></button>
                     </div>
                 <?php } ?>
-                <div class="row col-md-1 pull-right" style="padding-left: 10px;padding-right: 7px;margin-right: 1px;">
-                    <input class="form-control btn-default" type="button" value="<?= $rot_gerimptit ?>" 
+                    <button class="form-control btn-default es-btn-right" type="button"
                            onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'block');
-                                       PrintElem('conresexi_pdf')">
-                </div>
+                                       PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?></button>
                 <?php if ($pagamento_geral_habilitado) { ?>
-                    <div class="row col-md-1 pull-right" style="padding-left: 10px;padding-right: 2px;margin-right: 1px;">
-                        <input class="form-control btn-primary" type="button" value="<?= $rot_conpagbot ?>" onclick="$('#conpagcri_button_all').click()"  >
-                    </div>
+                        <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_all').click()"><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
                 <?php } ?>
-                <div class="row col-md-2 pull-right" style="width:160px">
-                    A pagar agora <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
+                <div class="col-md-2">
+                    <label><b>A pagar agora</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
                 </div>
-                <div class="row col-md-1 pull-right" style="width: 200px">
-                    <?= $rot_convalpag ?> <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_geral) ?>
-                </div>
-
-                <div class="row col-md-2 pull-right" style="width:160px">
-                    <?= $rot_contotpag ?> <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_pago_geral) ?>
+                <div class="col-md-2">
+                    <label><b><?= $rot_convalpag ?></b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_geral) ?>
                 </div>
 
-                <div class="row col-md-2 pull-right" style="width:160px">
-                    Despesas <?= $geral->germoeatr() ?><br/> <?= $geral->gersepatr($total_despesas_geral) ?>
+                <div class="col-md-2">
+                    <label><b><?= $rot_contotpag ?></b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago_geral) ?>
                 </div>
 
-            </button>
+                <div class="col-md-2" style="width:160px">
+                    <label><b>Despesas</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
+                </div>
+                </div>
         </div>
         <?php
         //Elemento para geração de pdf
-        echo $this->element('conta/conresexi_pdf', ['cabecalho_conta' => $cabecalho_conta, 'contas_quarto_item' => $contas_quarto_item, 'itens_virtuais' => $itens_virtuais??null, 'tela' => $tela]);
+        echo  $this->element('conta/conresexi_pdf', ['cabecalho_conta' => $cabecalho_conta, 'contas_quarto_item' => $contas_quarto_item, 'itens_virtuais' => $itens_virtuais??null, 'tela' => $tela]);
     } else if (isset($pesquisa_contas)) {
         ?>
         <br/><br/>Nenhum item encontrado
