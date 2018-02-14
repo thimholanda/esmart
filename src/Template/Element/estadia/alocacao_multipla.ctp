@@ -24,10 +24,10 @@ $disable_campos_gerais = false;
 if ($quarto_unico_alocado == null)
     $disable_campos_gerais = true;
 ?>
-<div class="form-group col-md-12 col-sm-12" style="margin-top:10px">
-    <div class="col-md-4 col-sm-4">
-        <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_0" <?= $pro_gerquatip ?>><?= $rot_gerquatip ?></label>
-        <div class="col-md-11 col-sm-12">
+<div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-top:10px; padding: 10px; margin-bottom: 10px;">
+    <div class="col-md-4" style="padding: 0;">
+        <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_0" <?= $pro_gerquatip ?>><b><?= $rot_gerquatip ?></b></label>
+        <div class="col-md-11 col-sm-12" style="padding: 0;">
             <select class="form-control alocacao_multipla_quarto_tipo"  <?php if ($disable_campos_gerais) echo 'disabled' ?>  name="gerquatip" required="required" id="gerquatip_0" <?= $pro_gerquatip ?> data-linha-atual = '0'>
                 <option value=""></option>
                 <?php
@@ -45,9 +45,9 @@ if ($quarto_unico_alocado == null)
             </select> 
         </div>
     </div>
-    <div class="col-md-4 col-sm-4">
-        <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_0"><?= $rot_resquacod ?></label>
-        <div class="col-md-11 col-sm-11">
+    <div class="col-md-4 col-sm-4" style="padding: 0;">
+        <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_0"><b><?= $rot_resquacod ?></b></label>
+        <div class="col-md-11 col-sm-11" style="padding: 0;">
             <select class="no-select-all-with-search alocacao_multipla_quarto_codigo" <?php if ($disable_campos_gerais) echo 'disabled' ?> name="quarto_codigo_alocacao" id="quarto_codigo_alocacao_0" data-linha-atual = '0'>
                 <option value=""></option>
                 <?php
@@ -93,7 +93,7 @@ if ($quarto_unico_alocado == null)
 ?>
 <div id="alocacao_multipla_datas">
     <div id="exibir_quarto_inner" class="dados_item2">
-        <div class="col-md-12 col-sm-12 info_quarto" style="margin-bottom:0px; margin-top:10px">
+        <div class="col-md-12 col-sm-12 info_quarto es-accordion-conta" style="margin-bottom:0px; margin-top:10px">
             <div class="col-md-10 col-sm-10 exibi_info"
                  <?php if (!$abre_alocacao_multipla) echo 'onclick="exibi_info_alocacao_multipla(\'#alocacao_multipla_datas\');"'; ?>>
                 <a ></a>
@@ -102,7 +102,7 @@ if ($quarto_unico_alocado == null)
             </div>
         </div>
     </div>
-    <div class="panel col-md-12 col-sm-12"   <?php
+    <div class="panel col-md-12 col-sm-12 es-panel-accordion" style="background: #eee !important;"   <?php
     if (!$abre_alocacao_multipla)
         echo 'style="display:none"';
     else
@@ -113,10 +113,10 @@ if ($quarto_unico_alocado == null)
                  ?>
             <div class="col-md-4 col-sm-4" style="margin-bottom:10px">
                 <?php if (($linha + 1) == 1) { ?>
-                    <label class="control-label label-no-top col-md-12 col-sm-12" for="gerdatalo_<?= $linha + 1 ?>" <?= $pro_gerdatalo ?>><?= $rot_gerdatalo ?></label>
+                    <label class="control-label label-no-top col-md-12 col-sm-12" for="gerdatalo_<?= $linha + 1 ?>" <?= $pro_gerdatalo ?>><b><?= $rot_gerdatalo ?></b></label>
                 <?php } ?>
                 <div class="col-md-11 col-sm-12">
-                    <input type="text" class="form-control" name="gerdatalo[]" readonly value="<?= Util::convertDataDMY($data) ?>" required="required" id="gerdatalo_<?= $linha + 1 ?>" <?= $pro_gerdatalo ?> />
+                    <input type="text" class="form-control" style="background: white; color: #555; font-size: 14px;" name="gerdatalo[]" readonly value="<?= Util::convertDataDMY($data) ?>" required="required" id="gerdatalo_<?= $linha + 1 ?>" <?= $pro_gerdatalo ?> />
                 </div>
             </div>
             <?php
@@ -131,7 +131,7 @@ if ($quarto_unico_alocado == null)
             <input type="hidden" id="quarto_codigo_alocado_<?= $linha + 1 ?>" value="<?= $quarto_codigo_linha_atual ?>" />
             <div class="col-md-4 col-sm-4" style="margin-bottom:10px">
                 <?php if (($linha + 1) == 1) { ?>
-                    <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_<?= $linha + 1 ?>" <?= $pro_gerquatip ?>><?= $rot_gerquatip ?></label>
+                    <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_<?= $linha + 1 ?>" <?= $pro_gerquatip ?>><b><?= $rot_gerquatip ?></b></label>
                 <?php } ?>
                 <div class="col-md-11 col-sm-12">
                     <select class="form-control alocacao_multipla_quarto_tipo" name="gerquatip[]" <?php if (!$estadia->estquahab($reserva_dados['empresa_codigo'], $reserva_dados['quarto_status_codigo'], $data, $session->read('final_padrao_horario'))) echo 'readonly' ?> required="required" id="gerquatip_<?= $linha + 1 ?>" <?= $pro_gerquatip ?>  data-linha-atual = '<?= $linha + 1 ?>'>
@@ -156,7 +156,7 @@ if ($quarto_unico_alocado == null)
 
             <div class="col-md-4 col-sm-4" style="margin-bottom:10px">
                 <?php if (($linha + 1) == 1) { ?>
-                    <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_<?= $linha + 1 ?>"><?= $rot_resquacod ?></label>
+                    <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_<?= $linha + 1 ?>"><b><?= $rot_resquacod ?></b></label>
                 <?php } ?>
                 <div class="col-md-11 col-sm-11">
                     <select class="no-select-all-with-search alocacao_multipla_quarto_codigo" <?php if (!$estadia->estquahab($reserva_dados['empresa_codigo'], $reserva_dados['quarto_status_codigo'], $data, $session->read('final_padrao_horario'))) echo 'disabled' ?> name="quarto_codigo_alocacao[]" id="quarto_codigo_alocacao_<?= $linha + 1 ?>"  data-linha-atual = '<?= $linha + 1 ?>'>

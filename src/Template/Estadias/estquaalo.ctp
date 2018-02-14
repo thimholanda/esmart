@@ -26,14 +26,9 @@ $datas = explode("|", $reserva_dados['datas']);
         echo $this->element('estadia/alocacao_multipla', ['datas' => $datas, 'quartos_alocados' => $quartos_alocados]);
         ?>
 
-        <div class="row col-md-12 col-sm-12 quat_botoes2">
-            <div class="cancel-right col-md-3 col-sm-4">
-                <input class="form-control btn-default close_dialog" type="button" value="<?= $rot_gerdesbot ?>">
-            </div>
-            <div class="pull-left col-md-3 col-sm-4">
-                <input id="estchicri_bot_2" style="float:left" class="form-control btn-primary estquaalo" type="button" value = "<?= $rot_geralobot ?>" >
-            </div>
-            <div class="col-md-3 col-sm-4"></div>
+        <div class="row col-md-12 col-sm-12 quat_botoes2 text-center" style="margin-top: 20px; margin-bottom: 20px;">
+            <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block; vertical-align: middle; margin: 0 10px;" type="button"><i class="fa fa-times-circle"></i><?= $rot_gerdesbot ?></button>
+            <button id="estchicri_bot_2" style="width: auto; display: inline-block; vertical-align: middle; margin: 0 10px;" class="form-control btn-primary estquaalo" type="button"><i class="fa fa-check-circle"></i> <?= $rot_geralobot ?></button>
         </div>
     </div>
 </form>

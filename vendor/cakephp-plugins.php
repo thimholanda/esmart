@@ -11,7 +11,6 @@ return [
         'DatabaseLog' => $baseDir . '/vendor/dereuromark/cakephp-databaselog/',
         'DebugKit' => $baseDir . '/vendor/cakephp/debug_kit/',
         'Migrations' => $baseDir . '/vendor/cakephp/migrations/',
-        'WyriHaximus/TwigView' => $baseDir . '/vendor/wyrihaximus/twig-view/',
         'audit-stash' => $baseDir . '/plugins/audit-stash/'
     ]
 ];

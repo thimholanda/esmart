@@ -122,25 +122,6 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
 
                     <b class="es-room-title"><b><?= $rot_resquacod ?> <?php if ($cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != null && $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo'] != "") echo $cabecalho_conta[$dados_resdocpes_quarto_item]['quarto_codigo']; ?></b> - <?= $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['nome'] . ' ' . $cabecalho_conta[$dados_resdocpes_quarto_item]['hospedes'][0]['sobrenome'] ?></b>
 
-
-                        <span title="imprimir" class="es-btn-right es-btn-top" type="button"
-                           onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
-                                           $('#conta_pdf_quarto_item_<?= $quarto_item ?>').css('display', 'block');
-                                           PrintElem('conresexi_pdf')"><i class="fa fa-print"></i>
-                        </span>
-
-                        <?php if ($pagamento_habilitado) { ?>
-
-                        <span title="pagamento" class="es-btn-right es-btn-top" type="button" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" ><i class="fa fa-credit-card"></i></span>
-
-                        <?php } ?>
-                        <?php if ($adicionar_item_habilitado) { ?>
-
-                        <span title="adicionar item" <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="es-btn-right es-btn-top" type="button" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()"><i class="fa fa-plus-circle"></i></span>
-
-                        <?php } ?>
-
-
                 </button>
 
                 <div class="panel-accordion es-panel-accordion col-md-12
@@ -165,26 +146,6 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                             else
                                 echo 'diária';
                             ?>)
-                        </div>
-
-                        <div class="col-md-12">
-                            <span class="es-featured-row row">
-                                <!-- Dados da reserva -->
-                                <div class="col-md-3">
-                                <label><b>A pagar agora:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?>
-                                </div>
-
-                                <div class="col-md-3">
-                                <label><b><?= $rot_convalpag ?>:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total[$quarto_item]) ?>
-                                </div>
-                                <div class="col-md-3">
-                                <label><b><?= $rot_contotpag ?>:</b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago[$quarto_item]) ?>
-                                </div>
-
-                                <div class="col-md-3">
-                                <lable><b>Despesas:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?>
-                                </div>
-                            </span>
                         </div>
 
                         <?php if ($tela == 'resdoccan') { ?>
@@ -266,31 +227,46 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
 
                     <div class="row es-inner-row" style="margin: 0; margin-top: 10px; padding:10px; ">
 
-                            <?php if ($checkout_habilitado) { ?>
-                            <div class="row col-md-2 pull-right">
-                            <input class="form-control btn-primary" type="button" onclick="$('#checkout_todos_quartos').val(0);
-                                                $('#quarto_item_checkout').val(<?= $quarto_item ?>);
-                                                estchocri()" value="<?= $rot_gerchotit ?>">
-                            </div>
-                            <?php } ?>
-                            <button class="form-control btn-default es-btn-right" type="button"
-                               onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
+                        <div class="col-md-12">
+                            <span class="es-featured-row row">
+
+                                <!-- Dados da reserva -->
+                                <div class="es-inline-elements"><lable><b>Despesas:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?></div>
+                                <div class="es-inline-elements"><lable><b><?= $rot_contotpag ?>:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago[$quarto_item]) ?></div>
+                                <div class="es-inline-elements"><lable><b><?= $rot_convalpag ?>:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total[$quarto_item]) ?></div>
+                                <div class="es-inline-elements"><lable><b>A pagar agora:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?></div>
+
+                                <button class="form-control btn-default es-btn-right" type="button"
+                                onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
                                                $('#conta_pdf_quarto_item_<?= $quarto_item ?>').css('display', 'block');
                                                PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?>
-                            </button>
-                            <?php if ($pagamento_habilitado) { ?>
+                                </button>
 
-                            <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" ><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
+                                <?php if ($pagamento_habilitado) { ?>
+                                    <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_<?= $quarto_item ?>').click()" ><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
+                                <?php } ?>
 
-                            <?php } ?>
-                            <?php if ($adicionar_item_habilitado) { ?>
+                                <?php if ($adicionar_item_habilitado) { ?>
+                                    <button <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="form-control btn-primary es-btn-right" type="button" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()"><i class="fa fa-plus-circle"></i> <?= $rot_concribot ?></button>
+                                <?php } ?>
 
-                            <button <?php if ($geracever_conitecri == '0') echo 'disabled' ?> class="form-control btn-primary es-btn-right" type="button" onclick="$('#conitecri_button_<?= $quarto_item ?>').click()"><i class="fa fa-plus-circle"></i> <?= $rot_concribot ?></button>
+                            </span>
 
-                            <?php } ?>
+
 
                         </div>
 
+                        <div class="col-md-12 text-center">
+                            <?php if ($checkout_habilitado) { ?>
+                                <button class="form-control btn-primary" style="display: inline-block; width: auto; margin: 10px 0;" type="button" onclick="$('#checkout_todos_quartos').val(0);
+                                                $('#quarto_item_checkout').val(<?= $quarto_item ?>);
+                                                estchocri()"><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?></button>
+                            <?php } ?>
+                        </div>
+
+
+
+                        </div>
 
                     <!--Exibição de pagamentos pre autorizados, so exibe se o total for maior que 0 -->
                     <?php
@@ -360,34 +336,37 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
             <div class="es-room-title"><b><?= $rot_gertottit ?></b></div>
             </button>
             <div class="es-container-total">
-                <?php if ($checkout_geral_habilitado) { ?>
-                    <div class="row col-md-2 pull-right">
-                        <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#checkout_todos_quartos').val(1);
-                                        estchocri()"
-                               ><?= $rot_gerchotit ?></button>
-                    </div>
-                <?php } ?>
-                    <button class="form-control btn-default es-btn-right" type="button"
-                           onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'block');
-                                       PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?></button>
+
+                <button class="form-control btn-default es-btn-right" type="button"
+                       onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'block');
+                                   PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?></button>
                 <?php if ($pagamento_geral_habilitado) { ?>
                         <button class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_all').click()"><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
                 <?php } ?>
+                <div class="col-md-2" style="width:160px">
+                    <label><b>Despesas</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
+                </div>
                 <div class="col-md-2">
-                    <label><b>A pagar agora</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
+                    <label><b><?= $rot_contotpag ?></b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago_geral) ?>
                 </div>
                 <div class="col-md-2">
                     <label><b><?= $rot_convalpag ?></b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_geral) ?>
                 </div>
-
                 <div class="col-md-2">
-                    <label><b><?= $rot_contotpag ?></b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago_geral) ?>
+                    <label><b>A pagar agora</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
                 </div>
+                <div class="col-md-12 text-center">
 
-                <div class="col-md-2" style="width:160px">
-                    <label><b>Despesas</b></label><br> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
+                    <?php if ($checkout_geral_habilitado) { ?>
+
+                        <hr style="display: block; width: 100%; border-top: 1px solid #ccc;">
+
+                        <button style="width: auto; display: inline-block; margin-bottom: 10px;" class="form-control btn-primary" type="button" onclick="$('#checkout_todos_quartos').val(1);
+                                        estchocri()"
+                               ><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?></button>
+                    <?php } ?>
                 </div>
-                </div>
+            </div>
         </div>
         <?php
         //Elemento para geração de pdf

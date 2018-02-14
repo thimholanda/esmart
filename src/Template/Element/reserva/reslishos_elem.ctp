@@ -1,3 +1,4 @@
+<div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-bottom: 10px; padding: 10px 0;">
 <?php
 for ($i = 1; $i <= $total_hospedes; $i++) {
     ?>
@@ -15,8 +16,8 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
             echo ' col-md-4 ';
         ?> col-sm-6">
              <?php if ($i == 1) { ?>
-                <label class="control-label col-md-12 col-sm-12" style="margin-left: 43px;"><?= $rot_cliprinom ?> do hóspede
-                    <?php if ($i == 1) echo "*" ?> 
+                <label class="control-label col-md-12 col-sm-12" style="margin-left: 32px;"><b><?= $rot_cliprinom ?> do hóspede
+                    <?php if ($i == 1) echo "*" ?></b>
                 </label>
             <?php } ?>
             <div class="col-md-12 col-sm-12">
@@ -35,7 +36,7 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
             echo ' col-md-4 ';
         ?> col-sm-6">
              <?php if ($i == 1) { ?>    
-                <label class="control-label col-md-12 col-sm-12"><?= $rot_clisobnom ?></label>
+                <label class="control-label col-md-12 col-sm-12"><b><?= $rot_clisobnom ?></b></label>
             <?php } ?>
             <div class="col-md-12 col-sm-12">
                 <input  class="form-control h_sobrenome  <?php if($i == 1) echo 'primeiro_hospede' ?> " <?php if($hospede_mesmo_contratante == 1 && $i == 1) echo 'readonly' ?> type="text"  onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')" 
@@ -50,7 +51,7 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
             echo ' col-md-4 ';
         ?> col-sm-6">
              <?php if ($i == 1) { ?>
-                <label class="control-label col-md-12 col-sm-12"><?= $rot_clicadema ?></label>
+                <label class="control-label col-md-12 col-sm-12"><b><?= $rot_clicadema ?></b></label>
 
             <?php } ?>
             <div class="col-md-12 col-sm-12">
@@ -67,7 +68,7 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
             <?php if (strpos($pro_clicpfnum, "display: none") == false) { ?>
                 <div class="col-md-2 col-sm-6">
                     <?php if ($i == 1) { ?>
-                        <label class="control-label col-md-12 col-sm-12"><?= $rot_clicpfnum ?></label>
+                        <label class="control-label col-md-12 col-sm-12"><b><?= $rot_clicpfnum ?></b></label>
                     <?php } ?>
                     <div class="col-md-12 col-sm-12">
                         <input class="form-control cpfcnpj h_cpf"  maxlength="18"   onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')"  type="text" name="h_cpfnum_<?= $quarto_item ?>_<?= $i ?>" id="h_cpfnum_<?= $quarto_item ?>_<?= $i ?>" 
@@ -82,7 +83,7 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
             <?php if (strpos($pro_clicelnum, "display: none") == false) { ?>
                 <div class="col-md-2 col-sm-6">
                     <?php if ($i == 1) { ?>
-                        <label class="control-label col-md-12 col-sm-12"><?= $rot_gertelnum ?></label>
+                        <label class="control-label col-md-12 col-sm-12"><b><?= $rot_gertelnum ?></b></label>
                     <?php } ?>
                     <div class="col-md-12 col-sm-12">
                         <input class="form-control celular" autocomplete="off" type="text"  onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')" name="h_cel_<?= $quarto_item ?>_<?= $i ?>" id="h_cel_<?= $quarto_item ?>_<?= $i ?>" placeholder="<?= $for_clicelnum ?>" <?= $pro_clicelnum ?> <?= $val_clicelnum ?> 
@@ -101,9 +102,9 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
                 echo ' col-md-1 ';
             ?> col-sm-6">
                  <?php if ($i == 1 && $total_campos_adicionais == 1) { ?>
-                    <label class="control-label col-md-12 col-sm-12"><?= $rot_clidoctip ?></label>
+                    <label class="control-label col-md-12 col-sm-12"><b><?= $rot_clidoctip ?></b></label>
                 <?php } elseif ($i == 1) { ?>
-                    <label class="control-label col-md-12 col-sm-12"><?= $rot_clidoctir ?></label>
+                    <label class="control-label col-md-12 col-sm-12"><b><?= $rot_clidoctir ?></b></label>
                 <?php } ?>
                 <div class="col-md-12 col-sm-12">
                     <select class="form-control h_doctip"  onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')"  name="h_doctip_<?= $quarto_item ?>_<?= $i ?>" id="h_doctip_<?= $quarto_item ?>_<?= $i ?>"  data-validation-depends-on="h_docnum_<?= $quarto_item ?>_<?= $i ?>" data-validation="required">
@@ -129,9 +130,9 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
                 echo ' col-md-1 ';
             ?> col-sm-6">
                  <?php if ($i == 1 && $total_campos_adicionais == 1) { ?>
-                    <label class="control-label col-md-12 col-sm-12"><?= $rot_gernumtit ?></label>
+                    <label class="control-label col-md-12 col-sm-12"><b><?= $rot_gernumtit ?></b></label>
                 <?php } elseif ($i == 1) { ?>
-                    <label class="control-label col-md-12 col-sm-12"><?= $rot_gernumtir ?></label>
+                    <label class="control-label col-md-12 col-sm-12"><b><?= $rot_gernumtir ?></b></label>
                 <?php } ?>
                 <div class="col-md-12 col-sm-12">
                     <input class="form-control h_docnum"   onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')"  data-validation-depends-on="h_doctip_<?= $quarto_item ?>_<?= $i ?>" data-validation="required"  type="text" name="h_docnum_<?= $quarto_item ?>_<?= $i ?>" id="h_docnum_<?= $quarto_item ?>_<?= $i ?>" 
@@ -141,3 +142,4 @@ for ($i = 1; $i <= $total_hospedes; $i++) {
         <?php } ?>
     </div>
 <?php } ?>
+</div>
