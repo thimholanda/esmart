@@ -24,47 +24,53 @@ $disable_campos_gerais = false;
 if ($quarto_unico_alocado == null)
     $disable_campos_gerais = true;
 ?>
-<div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-top:10px; padding: 10px; margin-bottom: 10px;">
-    <div class="col-md-4" style="padding: 0;">
-        <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_0" <?= $pro_gerquatip ?>><b><?= $rot_gerquatip ?></b></label>
-        <div class="col-md-11 col-sm-12" style="padding: 0;">
-            <select class="form-control alocacao_multipla_quarto_tipo"  <?php if ($disable_campos_gerais) echo 'disabled' ?>  name="gerquatip" required="required" id="gerquatip_0" <?= $pro_gerquatip ?> data-linha-atual = '0'>
-                <option value=""></option>
-                <?php
-               // if (!$disable_campos_gerais) {
-                    foreach ($quarto_tipo_lista as $item) {
-                        $selected = "";
-                        if ($quarto_tipo_unico_alocado == $item['valor'])
-                            $selected = "selected";
-                        ?>
-                        <option value="<?= $item["valor"] ?>" <?= $selected ?> >
-                            <?= $item["rotulo"] ?>
-                        </option>
-                    <?php } ?>
-                <?php // } ?>
-            </select> 
+<button type="button" class="accordion-conta es-accordion-conta" style="margin-top: 15px; pointer-events: none;"><div class="es-room-title"><strong> Alocação em um único quarto
+        </strong></div></button>
+<div class="es-container-generico" style="padding: 0; margin-bottom: 0;">
+<div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-top:10px; padding: 10px; margin-bottom: 0px; margin-top: 0;">
+    <div class="row es-inner-row es-inner-row-gray" style="margin-bottom: 0; padding: 15px;">
+        <div class="col-md-4" style="padding: 0;">
+            <label class="control-label label-no-top col-md-12 col-sm-12" for="gerquatip_0" <?= $pro_gerquatip ?>><b><?= $rot_gerquatip ?></b></label>
+            <div class="col-md-11 col-sm-12" style="padding: 0;">
+                <select class="form-control alocacao_multipla_quarto_tipo"  <?php if ($disable_campos_gerais) echo 'disabled' ?>  name="gerquatip" required="required" id="gerquatip_0" <?= $pro_gerquatip ?> data-linha-atual = '0'>
+                    <option value=""></option>
+                    <?php
+                   // if (!$disable_campos_gerais) {
+                        foreach ($quarto_tipo_lista as $item) {
+                            $selected = "";
+                            if ($quarto_tipo_unico_alocado == $item['valor'])
+                                $selected = "selected";
+                            ?>
+                            <option value="<?= $item["valor"] ?>" <?= $selected ?> >
+                                <?= $item["rotulo"] ?>
+                            </option>
+                        <?php } ?>
+                    <?php // } ?>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="col-md-4 col-sm-4" style="padding: 0;">
-        <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_0"><b><?= $rot_resquacod ?></b></label>
-        <div class="col-md-11 col-sm-11" style="padding: 0;">
-            <select class="no-select-all-with-search alocacao_multipla_quarto_codigo" <?php if ($disable_campos_gerais) echo 'disabled' ?> name="quarto_codigo_alocacao" id="quarto_codigo_alocacao_0" data-linha-atual = '0'>
-                <option value=""></option>
-                <?php
-                if (!$disable_campos_gerais) {
-                    foreach ($gerquadis_geral_retorno['quarto_codigo'] as $item) {
-                        $selected = "";
-                        if (array_keys($quartos_alocados)[0] == $item['quarto_codigo'])
-                            $selected = 'selected';
-                        ?>
-                        <option value="<?= $item['quarto_codigo'] ?>"  <?= $selected ?>><?= $item['quarto_codigo'] ?></option>
-                        <?php
+        <div class="col-md-4 col-sm-4" style="padding: 0;">
+            <label class="control-label label-no-top col-md-12 col-sm-12" for="quarto_codigo_alocacao_0"><b><?= $rot_resquacod ?></b></label>
+            <div class="col-md-11 col-sm-11" style="padding: 0;">
+                <select class="no-select-all-with-search alocacao_multipla_quarto_codigo" <?php if ($disable_campos_gerais) echo 'disabled' ?> name="quarto_codigo_alocacao" id="quarto_codigo_alocacao_0" data-linha-atual = '0'>
+                    <option value=""></option>
+                    <?php
+                    if (!$disable_campos_gerais) {
+                        foreach ($gerquadis_geral_retorno['quarto_codigo'] as $item) {
+                            $selected = "";
+                            if (array_keys($quartos_alocados)[0] == $item['quarto_codigo'])
+                                $selected = 'selected';
+                            ?>
+                            <option value="<?= $item['quarto_codigo'] ?>"  <?= $selected ?>><?= $item['quarto_codigo'] ?></option>
+                            <?php
+                        }
                     }
-                }
-                ?> 
-            </select>
+                    ?>
+                </select>
+            </div>
         </div>
     </div>
+</div>
 </div>
 <div  class="form-group col-md-12 col-sm-12" id="motivos_quartos_diferentes" style="display:none">
     <div  class="form-group col-md-6 col-sm-12">
@@ -102,12 +108,15 @@ if ($quarto_unico_alocado == null)
             </div>
         </div>
     </div>
-    <div class="panel col-md-12 col-sm-12 es-panel-accordion" style="background: #eee !important;"   <?php
+    <div class="panel col-md-12 col-sm-12 es-panel-accordion" style="background: #eaeaea !important; padding: 10px !important; margin-bottom: 0;"   <?php
     if (!$abre_alocacao_multipla)
         echo 'style="display:none"';
     else
         echo 'style="display:block"'
         ?>>
+
+        <div class="row es-inner-row es-inner-row-gray" style="margin-bottom: 0; padding: 10px 5px;">
+
              <?php
              foreach ($datas as $linha => $data) {
                  ?>
@@ -174,6 +183,7 @@ if ($quarto_unico_alocado == null)
                 </div>
             </div>
         <?php } ?>
+        </div>
     </div>
 </div>
 

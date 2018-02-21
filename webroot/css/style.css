@@ -2866,17 +2866,17 @@ a.restardia{
 .quat_botoes{margin:20px 0 30px; padding: 0;}
 .quat_botoes2{margin:0px; padding: 0;}
 .exibi_info a{
-    /*background: url('../img/mais.png') no-repeat center center;*/
-    background: url('../img/fechar-03.png') no-repeat center center;
-    padding: 10px 30px 10px 0px;
+    /* background: url(../img/mais.png) no-repeat center center; */
+    background: url(../img/fechar-03.png) no-repeat left center;
+    padding: 10px 21px 10px 0px;
     float: left;
-    margin: 4px 10px 4px 0;
+    margin: 4px 11px 4px 0;
     border-right: 1px solid #333;
 }
 .escd_info a{
-    /*background: url('../img/menos.png') no-repeat center center;*/
-    background: url('../img/abrir-3.png') no-repeat center center;
-    padding: 10px 30px 10px 0px;
+    /* background: url(../img/menos.png) no-repeat center center; */
+    background: url(../img/abrir-3.png) no-repeat left center;
+    padding: 10px 20px 10px 0px;
     float: left;
     margin: 4px 10px 4px 0;
     border-right: 1px solid #333;

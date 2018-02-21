@@ -31,9 +31,9 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
         echo $this->element('estadia/alocacao_multipla', ['datas' => $datas, 'quartos_alocados' => $quartos_alocados, 'reserva_dados' => $reserva_dados[$indice_quarto_item_atual]]);
         ?>
         <div class="row col-md-12 col-sm-12 quat_botoes2 text-center" style="margin-top: 20px; margin-bottom: 20px;">
-            <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block; vertical-align: middle; margin: 0 10px;" type="button"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
-            <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; display: inline-block; vertical-align: middle; margin: 0 10px;" type="button" onclick="estfnrpri();" ><i class="fa fa-print"></i> <?= $rot_estimpfnr ?></button>
-            <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; display: inline-block; vertical-align: middle; margin: 0 10px;" type="button" ><i class="fa fa-check-circle"></i> <?= $rot_estcnfcon ?></button>
+            <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: left;" type="button"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
+            <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: right" type="button" ><i class="fa fa-check-circle"></i> <?= $rot_estcnfcon ?></button>
+            <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; margin-right: 10px; float: right" type="button" onclick="estfnrpri();" ><i class="fa fa-print"></i> <?= $rot_estimpfnr ?></button>
         </div>
     </div>
     <div id="checkin_revisao_contas" style="<?php if($tela_exibicao == 'checkin_revisao_contas') echo 'display:block'; else echo 'display:none' ?>">
