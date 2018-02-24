@@ -1,6 +1,6 @@
-<button type="button" class="accordion-conta es-accordion-conta" style="margin-top: 15px; pointer-events: none;"><div class="es-room-title"><strong>Revisão de hóspedes</strong></div></button>
+<button type="button" class="accordion-conta es-accordion-conta" style="margin-top: 15px; pointer-events: none; background-color: #d9d9d9"><div class="es-room-title"><strong>Revisão de hóspedes</strong></div></button>
 <div class="es-container-generico" style="padding: 0; margin-bottom: 0;">
-    <div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-bottom: 0px; margin-top: 0; padding: 10px;">
+    <div class="form-group col-md-12 col-sm-12 es-title-topic" style="margin-bottom: 0px; margin-top: 0; padding: 10px; background-color: #eaeaea;">
         <div class="row es-inner-row es-inner-row-gray" style="margin-bottom: 0; padding: 15px 0;">
     <?php
     for ($i = 1; $i <= $total_hospedes; $i++) {
