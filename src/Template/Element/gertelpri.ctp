@@ -159,7 +159,7 @@ $session = new Session();
                 else
                     echo 'display:none'
                     ?>"></a>
-                   <?php if ($session->read('usuario_codigo') == 0) { ?>
+                   <?php if ($session->read('acesso_perfil_codigo') == 'sistema') { ?>
                     <select style="width: 38%; display:inline; margin-top: -10px;" class="form-control gergrucod" name="gergrucod" id="gergrucod"> 
                         <?php
                         foreach ($gergrucod_list as $item) {

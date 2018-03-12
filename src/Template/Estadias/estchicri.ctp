@@ -36,7 +36,8 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
             <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; min-width: 177px; display: inline-block; vertical-align: middle; margin: 0; margin-right: 10px; float: right" type="button" onclick="estfnrpri();" ><i class="fa fa-print"></i> <?= $rot_estimpfnr ?></button>
         </div>
     </div>
-    <div id="checkin_revisao_contas" style="<?php if($tela_exibicao == 'checkin_revisao_contas') echo 'display:block'; else echo 'display:none' ?>">
+    <!--  TODO: remove display block;  -->
+    <div id="checkin_revisao_contas" style="<?php if($tela_exibicao == 'checkin_revisao_contas') echo 'display:block'; else echo 'display:block' ?>">
         <!--Inclui o elemento de exibicao das contas da reserva selecionada -->
         <?php
         echo $this->element('conta/conresexi_elem', ['pesquisa_contas' => $pesquisa_contas, 'geracever_conitecri' => '', 'redirect_page' => '/reservas/resdocpes',
@@ -44,17 +45,15 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
         ?>
 
         <div class="row col-md-12 col-sm-12 quat_botoes2">
-            <div class="cancel-right col-md-4 col-sm-4">
-                <input class="form-control btn-default close_dialog" type="button" value="<?= $rot_gerdesbot ?>">
+            <div class="cancel-right col-md-4 col-sm-4" style="padding-left: 0;">
+                <button class="form-control btn-default close_dialog es-default-button" style="margin-left: 0;" type="button"><i class="fa fa-times-circle" style="margin-left: 0;"></i>  <?= $rot_gerdesbot ?></button>
             </div>
-            <div class="pull-left col-md-4 col-sm-4">
-                <input style="float:left" class="form-control btn-default" type="button" value = "<?= $rot_gervolbot ?>"
-                       onclick="$('#checkin_revisao_contas').css('display', 'none');
+            <div class="pull-left col-md-8 col-sm-8">
+                <button style="float:right; margin-right: 0;" class="form-control btn-primary es-default-button" type="button" onclick="estchrcri()" ><i class="fa fa-arrow-circle-right"></i>  <?= $rot_gerchitit ?> quarto <?= $quarto_item ?></button>
+                <button style="float:right; margin-right: 10px;" class="form-control btn-default es-default-button" type="button"
+                        onclick="$('#checkin_revisao_contas').css('display', 'none');
                                $('#checkin_revisao_e_alocacao').css('display', 'block');
-                               $('#atual_dialog_params').val($('#atual_dialog_params').val().substring(0, $('#atual_dialog_params').val().length - 1) + ',\'tela_exibicao\':\'checkin_revisao_e_alocacao\'}')" >
-            </div>
-            <div class="pull-left col-md-4 col-sm-4">
-                <input style="float:left" class="form-control btn-primary" type="button" value = "<?= $rot_gerchitit ?> quarto <?= $quarto_item ?>" onclick="estchrcri()" >
+                               $('#atual_dialog_params').val($('#atual_dialog_params').val().substring(0, $('#atual_dialog_params').val().length - 1) + ',\'tela_exibicao\':\'checkin_revisao_e_alocacao\'}')" ><i class="fa fa-arrow-circle-left"></i>  <?= $rot_gervolbot ?></button>
             </div>
         </div>
     </div>

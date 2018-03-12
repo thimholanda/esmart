@@ -149,7 +149,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                         </div>
 
                         <?php if ($tela == 'resdoccan') { ?>
-                            <div class="col-md-3" style="color:<?= $color ?>"><label><b><?= $rot_reslimcan ?>: </b> </label> <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['cancelamento_limite'], 'd/m/Y H:i') ?></div>
+                            <div class="col-md-12" style="margin-top: -5px; margin-bottom: 10px; padding: 0; color:<?= $color ?>"><label><b><?= $rot_reslimcan ?>: </b> </label> <?= Util::convertDataDMY($cabecalho_conta[$dados_resdocpes_quarto_item]['cancelamento_limite'], 'd/m/Y H:i') ?></div>
                         <?php } ?>
 
                     <div class="row es-inner-row es-inner-row-gray">
@@ -250,14 +250,16 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
 
                         </div>
 
-                        <div class="col-md-12 text-center">
-                            <?php if ($checkout_habilitado) { ?>
-                                <button class="form-control btn-primary" style="display: inline-block; width: auto; margin: 10px 0;" type="button" onclick="$('#checkout_todos_quartos').val(0);
-                                                $('#quarto_item_checkout').val(<?= $quarto_item ?>);
-                                                estchocri()"><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?></button>
-                            <?php } ?>
-                        </div>
 
+
+                    </div>
+
+                    <div class="col-md-12 text-center" style="padding: 0;">
+                        <?php if ($checkout_habilitado) { ?>
+                            <button class="form-control btn-primary" style="width: auto; min-width: 130px; float: right; margin: 10px 0;" type="button" onclick="$('#checkout_todos_quartos').val(0);
+                                            $('#quarto_item_checkout').val(<?= $quarto_item ?>);
+                                            estchocri()"><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?></button>
+                        <?php } ?>
                     </div>
 
                     <!--Exibição de pagamentos pre autorizados, so exibe se o total for maior que 0 -->
@@ -373,18 +375,12 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
     ?>
     <?php if ($tela == 'resdoccan') { ?>
         <div class="row col-md-12 col-sm-12 quat_botoes2">
-            <div class="cancel-right col-md-4 col-sm-4">
-                <input class="form-control btn-default close_dialog" type="button" value="<?= $rot_gerdesbot ?>" onclick="docs_a_cancelar = undefined;
-                            $('.check_doc').prop('checked', false)">
-            </div>
-            <div class="pull-right col-md-4 col-sm-4">
-                <?php
-                if ($reserva->rescslhab($total[$quarto_item_selecionado])) {
-                    ?>
-                    <input  class="form-control btn-secundary" type="button" value = "<?= $rot_gercanbot ?> quarto <?= $quarto_item_selecionado ?>"
-                            onclick="resdoccan_2(<?= $documento_numero_selecionado ?>, <?= $quarto_item_selecionado ?>, '<?= $cancelamento_limite ?>', '<?= $cancelamento_valor ?>')" >
-                        <?php } ?>
-            </div>
+            <button class="form-control btn-default close_dialog es-default-button" type="button" style="margin: 0; margin-bottom: 20px;" onclick="docs_a_cancelar = undefined; $('.check_doc').prop('checked', false)"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
+            <?php if ($reserva->rescslhab($total[$quarto_item_selecionado])): ?>
+                    <button class="form-control btn-secundary es-default-button es-btn-trash" style="margin: 0; margin-bottom: 20px; float: right;" type="button"
+                            onclick="resdoccan_2(<?= $documento_numero_selecionado ?>, <?= $quarto_item_selecionado ?>, '<?= $cancelamento_limite ?>', '<?= $cancelamento_valor ?>')" ><i class="fa fa-trash"></i>  <?= $rot_gercanbot ?> quarto <?= $quarto_item_selecionado ?></button>
+            <?php endif; ?>
+
         </div>
         <?php
     }

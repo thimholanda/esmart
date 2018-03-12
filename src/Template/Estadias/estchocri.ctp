@@ -36,6 +36,7 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
                 <div><?= $reserva['hospedes'][0]['nome'] . ' ' . $reserva['hospedes'][0]['sobrenome'] ?>[PAX] <?= $reserva['adulto_quantidade'] ?>/<?= $reserva['crianca_quantidade'] ?></div>
             </div>
         </div>
+
         <!-- Verifica se é checkout tardio -->
         <?php if ($reserva['excedido_tempo'] > 0) { ?>
             <div class="col-md-12 col-sm-12 list_rescli_inner es-list-inner">
@@ -67,7 +68,7 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
     &nbsp;
     <br>
     <?php
-    echo $this->element('conta/conresexi_elem', ['pesquisa_contas' => $pesquisa_contas, 'geracever_conitecri' => '', 'redirect_page' => '/reservas/resdocpes', 
+    echo $this->element('conta/conresexi_elem', ['pesquisa_contas' => $pesquisa_contas, 'geracever_conitecri' => '', 'redirect_page' => '/reservas/resdocpes',
         'opcao_add_conta' => false, 'back_page' => '', 'has_form' => '1', 'form_id' => 'estchocri', 'has_link' => 0, 'evento' => 2, 'modo_exibicao' => 'dialog', 'tela' => 'estchocri']);
     ?>
     <div class="row col-md-12 col-sm-12 quat_botoes2 text-center">
