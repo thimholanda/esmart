@@ -36,8 +36,7 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
             <button class="form-control btn-primary conferir_conta_checkin" style="width: auto; min-width: 177px; display: inline-block; vertical-align: middle; margin: 0; margin-right: 10px; float: right" type="button" onclick="estfnrpri();" ><i class="fa fa-print"></i> <?= $rot_estimpfnr ?></button>
         </div>
     </div>
-    <!--  TODO: remove display block;  -->
-    <div id="checkin_revisao_contas" style="<?php if($tela_exibicao == 'checkin_revisao_contas') echo 'display:block'; else echo 'display:block' ?>">
+    <div id="checkin_revisao_contas" style="<?php if($tela_exibicao == 'checkin_revisao_contas') echo 'display:block'; else echo 'display:none' ?>">
         <!--Inclui o elemento de exibicao das contas da reserva selecionada -->
         <?php
         echo $this->element('conta/conresexi_elem', ['pesquisa_contas' => $pesquisa_contas, 'geracever_conitecri' => '', 'redirect_page' => '/reservas/resdocpes',

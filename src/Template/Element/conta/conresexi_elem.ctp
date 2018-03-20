@@ -229,10 +229,10 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                         <div class="col-md-12" style="margin-top: 15px; padding: 0;">
 
                             <!-- Dados da reserva -->
-                            <div class="es-inline-elements"><lable><b>Despesas:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?></div>
-                            <div class="es-inline-elements"><lable><b><?= $rot_contotpag ?>:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago[$quarto_item]) ?></div>
-                            <div class="es-inline-elements"><lable><b><?= $rot_convalpag ?>:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total[$quarto_item]) ?></div>
-                            <div class="es-inline-elements"><lable><b>A pagar agora:</b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?></div>
+                            <div class="es-inline-elements"><lable><b>Despesas:<br></b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas[$quarto_item]) ?></div>
+                            <div class="es-inline-elements"><lable><b><?= $rot_contotpag ?>:<br></b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago[$quarto_item]) ?></div>
+                            <div class="es-inline-elements"><lable><b><?= $rot_convalpag ?>:<br></b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total[$quarto_item]) ?></div>
+                            <div class="es-inline-elements"><lable><b>A pagar agora:<br></b></lable> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora[$quarto_item]) ?></div>
 
                             <button class="form-control btn-default es-btn-right" type="button"
                             onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'none');
@@ -340,16 +340,16 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                             <button style="min-width: 177px;" class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_all').click()"><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
                     <?php } ?>
                     <div class="es-inline-elements" >
-                        <label><b>Despesas: </b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
+                        <label><b>Despesas: <br></b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
                     </div>
                     <div class="es-inline-elements">
-                        <label><b><?= $rot_contotpag ?>: </b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago_geral) ?>
+                        <label><b><?= $rot_contotpag ?>: <br></b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_pago_geral) ?>
                     </div>
                     <div class="es-inline-elements">
-                        <label><b><?= $rot_convalpag ?>: </b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_geral) ?>
+                        <label><b><?= $rot_convalpag ?>: <br></b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_geral) ?>
                     </div>
                     <div class="es-inline-elements">
-                        <label><b>A pagar agora: </b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
+                        <label><b>A pagar agora: <br></b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_a_pagar_agora_geral) ?>
                     </div>
 
                  </div>

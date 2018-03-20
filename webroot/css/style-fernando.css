@@ -595,11 +595,12 @@ a.link_ativo:hover{
     vertical-align: middle;
     width: auto;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .es-btn-right{
-    min-width: 130px;
+    min-width: 170px;
 }
 
 .es-inline-elements + .es-inline-elements{
@@ -642,13 +643,13 @@ a.link_ativo:hover{
 }
 
 .es-default-button{
-    min-width: 130px;
+    min-width: 170px;
     width: auto;
     display: inline-block;
     padding: 4px 6px !important;
 
 }
 
-.es-btn-trash:hover{
-
+.control-label{
+    margin-bottom: 0;
 }
