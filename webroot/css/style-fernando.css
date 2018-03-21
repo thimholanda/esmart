@@ -672,3 +672,16 @@ a.link_ativo:hover{
 .es-custom-panel .list_rescli_inner{
     margin-bottom: 10px;
 }
+
+.es-tela-pagamento-added{
+    background: rgb(242,242,242);
+    padding-bottom: 5px;
+    min-height: 0;
+}
+
+.es-tela-pagamento-added .titulo_pag{
+    background: #d9d9d9 !important;
+    font-size: 20px;
+    line-height: 20px;
+    color: #444;
+}
