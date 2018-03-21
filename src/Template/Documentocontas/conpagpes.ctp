@@ -59,117 +59,155 @@ $geral = new Geral();
                        }else
                        return true;
                        ">
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <span><b><?= $rot_gergertit ?></b></span>
-                    </div>
-                </div>
-                <div class='form-group'>
-                    <label class='control-label col-md-1 col-sm-3' for="resdocnum" <?= $pro_resdocnum ?>><?= $rot_resdocnum ?>: </label>
-                    <div class='col-md-1 col-sm-3'> <input class='form-control' type="text" name="resdocnum" id="resdocnum" value="<?= $resdocnum ?? '' ?>" placeholder="<?= $for_resdocnum ?>" <?= $pro_resdocnum ?> <?= $val_resdocnum ?> /></div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-2">
-                        <span><b><?= $rot_conpagtit ?></b></span>
-                    </div>
-                </div>
-
-                <div class='form-group'>
-                    <label class='control-label col-md-1 col-sm-3' for="conpagdai" <?= $pro_conpagdai ?>><?= $rot_conpagdat ?>: </label> 
-                    <div class='col-md-2 col-sm-3'  style="padding-left:0; padding-right: 0;"> 
-                        <input class='form-control datepicker data data_incrementa_igual' aria-id-campo-filho='conpagdaf'  type="text" name="gerdattit_inicio" id="conpagdai"
-                               value="<?= $gerdattit_inicio ?? $padrao_valor_conpagdai ?? '' ?>"
-                               placeholder="<?= $for_conpagdai ?>"
-                               aria-campo-padrao-valor ="<?= $campo_padrao_valor_conpagdai ?>"  aria-padrao-valor="<?= $padrao_valor_conpagdai ?? '' ?>"
-                               <?= $pro_conpagdai ?> 
-                               <?= $val_conpagdai ?> />
-
-                    </div>
-                    <div class='col-md-1 col-sm-3' style="padding:0; margin-left: -70px; margin-top: 4px;margin-right: -40px;"> 
-                        <span>-</span>
-                    </div>
-                    <div class='col-md-2 col-sm-3' style="padding-left:0; margin-left: -58px;"> 
-                        <input class='form-control datepicker data' type="text" name="gerdattit_final" id="conpagdaf"  aria-id-campo-dependente="conpagdai" 
-                               value="<?= $gerdattit_final ?? $padrao_valor_conpagdaf ?? '' ?>"
-                               placeholder="<?= $for_conpagdaf ?>"
-                               aria-campo-padrao-valor ="<?= $campo_padrao_valor_conpagdaf ?>"  aria-padrao-valor="<?= $padrao_valor_conpagdaf ?? '' ?>"
-                               <?= $pro_conpagdaf ?>
-                               <?= $val_conpagdaf ?> />
-                    </div>
-                    <label class='control-label col-md-1 col-sm-3' ><?= $rot_respagval ?></label>
-                    <div class='col-md-1 col-sm-3'>
-                        <input class='form-control moeda' type="text" placeholder="<?= $for_respagval ?>" name="forma_valor" id="forma_valor" value="<?= $forma_valor ?? '' ?>">
-                    </div>
-
-                    <label class='control-label col-md-2 col-sm-3' for="respagfor" <?= $pro_respagfor ?>><?= $rot_respagfor ?>: </label>
-                    <div class='col-md-3 col-sm-3'> 
-                        <select class = 'form-control' name = 'respagfor' id = 'respagfor'>
-                            <option value = "" selected = "selected"></option>
-
-                            <?php foreach ($var_respagfor as $item_respafor) { ?>
-
-                                <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>"
-                                <?php
-                                if ($item_respafor['pagamento_forma_codigo'] == ($respagfor ?? '')) {
-                                    echo ' selected ';
-                                }
-                                ?>>
-                                            <?= $item_respafor["pagamento_forma_nome"] ?>
-                                </option> 
-
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class='control-label col-md-1 col-sm-3' ><?= $rot_rescarnum ?></label>
-                    <div class='col-md-2 col-sm-3'>
-                        <input class='form-control' type="text" size="12" name="forma_cartao_numero" id="forma_cartao_numero" value='<?= $forma_cartao_numero ?? '' ?>'>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class='control-label col-md-1 col-sm-3' ><?= $rot_respagbnc ?></label>
-                    <div class='col-md-1 col-sm-1'>
-                        <input class='form-control' type="text" size="3" name="forma_banco" id="forma_banco" value='<?= $forma_banco ?? '' ?>'>
-                    </div>
-                    <label class='control-label col-md-1 col-sm-3' ><?= $rot_respagagc ?></label>
-                    <div class='col-md-1 col-sm-1'>
-                        <input class='form-control' type="text" size="5" name="forma_agencia" id="forma_agencia" value='<?= $forma_agencia ?? '' ?>' >
-                    </div>
-
-                    <label class='control-label col-md-2 col-sm-3' ><?= $rot_respagcco ?></label> 
-                    <div class='col-md-2 col-sm-1'>
-                        <input class='form-control' type="text" size="12" name="forma_conta_corrente" id="forma_conta_corrente"   value='<?= $forma_conta_corrente ?? '' ?>'>
-                    </div>
-                </div>
-                <div class='form-group'>
-                    <label class='control-label col-md-3 col-sm-3' for="conresdep" <?= $pro_conresdep ?>><?= $rot_conresdep ?>: </label> <div class='col-md-2 col-sm-3'> <input class='form-control' type="text" name="respagref" id="respagref" value="<?= $respagref ?? '' ?>" placeholder="<?= $for_respagref ?>"  <?= $pro_respagref ?> <?= $val_respagref ?> /></div>
-                </div>
 
 
-                <div class="form-group" id="linha-1">
-                    <div class='col-md-12 col-sm-12'>
-                        <b><?= $rot_gerclitit ?> <i style='color:red'>Avaliar limitar a pagante</i></b>
-                    </div>
-                    <div class="row form-group">
-                        <input id='c_codigo' name='c_codigo' type="hidden" value="<?= $c_codigo ?? '' ?>" />
-                        <label class="control-label col-md-1 col-sm-3" for="cliprinom" <?= $pro_cliprinom ?>><?= $rot_cliprinom ?>: </label>
-                        <div class="col-md-2 col-sm-9">    
-                            <input  class="form-control input_autocomplete" id='c_nome_autocomplete' type="text" name="cliprinom" value="<?= $cliprinom ?? '' ?>" placeholder="<?= $for_cliprinom ?>" <?= $pro_cliprinom ?> <?= $val_cliprinom ?> /> 
-                        </div>  
-                        <div class="col-md-1">
-                            <button class="<?= $ace_clicadpes ?> clicadpes" type="button"  aria-cliente-codigo-id='c_codigo' aria-cliente-nome-id='c_nome_autocomplete' aria-cliente-cpf-cnpj-id=''>
-                                <span class='ui-icon ui-icon-search'></span>
-                            </button>
+                <div class="form-group row">
+                    <div class='col-md-3 col-sm-3'">
+                        <div class="col-md-12">
+                            <label for="conpagdai" <?= $pro_conpagdai ?>>Início</label>
+                            <input class='form-control datepicker data data_incrementa_igual' aria-id-campo-filho='conpagdaf'  type="text" name="gerdattit_inicio" id="conpagdai"
+                                   value="<?= $gerdattit_inicio ?? $padrao_valor_conpagdai ?? '' ?>"
+                                   placeholder="<?= $for_conpagdai ?>"
+                                   aria-campo-padrao-valor ="<?= $campo_padrao_valor_conpagdai ?>"  aria-padrao-valor="<?= $padrao_valor_conpagdai ?? '' ?>"
+                                <?= $pro_conpagdai ?>
+                                <?= $val_conpagdai ?> />
+                            <span style="position: absolute; right: -8px; top: 30px;">-</span>
                         </div>
                     </div>
 
+                    <div class='col-md-3 col-sm-3'>
+                        <div class="col-md-12">
+                            <label for="conpagdai" <?= $pro_conpagdai ?>>Fim</label>
+                            <input class='form-control datepicker data' type="text" name="gerdattit_final" id="conpagdaf"  aria-id-campo-dependente="conpagdai"
+                                   value="<?= $gerdattit_final ?? $padrao_valor_conpagdaf ?? '' ?>"
+                                   placeholder="<?= $for_conpagdaf ?>"
+                                   aria-campo-padrao-valor ="<?= $campo_padrao_valor_conpagdaf ?>"  aria-padrao-valor="<?= $padrao_valor_conpagdaf ?? '' ?>"
+                                <?= $pro_conpagdaf ?>
+                                <?= $val_conpagdaf ?> />
+                        </div>
+                    </div>
 
-                    <div class="pull-left">
-                        <input class="form-control btn-primary  submit-button" aria-form-id="conpagpes" type="submit" name="btn_exi_pag" id="btn_exi_pag" value="<?= $rot_gerexebot ?>" >
+                    <div class='col-md-3 col-sm-3'>
+                        <div class="col-md-12">
+                            <label><?= $rot_respagval ?></label>
+                            <input class='form-control moeda' type="text" placeholder="<?= $for_respagval ?>" name="forma_valor" id="forma_valor" value="<?= $forma_valor ?? '' ?>">
+                        </div>
+                    </div>
+
+                    <div class='col-md-3 col-sm-3'>
+                        <div class="col-md-12">
+                            <label for="respagfor" <?= $pro_respagfor ?>><?= $rot_respagfor ?> </label>
+                            <select class = 'form-control' name = 'respagfor' id = 'respagfor'>
+                                <option value = "" selected = "selected"></option>
+
+                                <?php foreach ($var_respagfor as $item_respafor) { ?>
+
+                                    <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>"
+                                        <?php
+                                        if ($item_respafor['pagamento_forma_codigo'] == ($respagfor ?? '')) {
+                                            echo ' selected ';
+                                        }
+                                        ?>>
+                                        <?= $item_respafor["pagamento_forma_nome"] ?>
+                                    </option>
+
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class='form-group row'>
+
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <label ><?= $rot_rescarnum ?></label>
+                            <input class='form-control' type="text" size="12" name="forma_cartao_numero" id="forma_cartao_numero" value='<?= $forma_cartao_numero ?? '' ?>'>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <label><?= $rot_respagbnc ?></label>
+                            <input class='form-control' type="text" size="3" name="forma_banco" id="forma_banco" value='<?= $forma_banco ?? '' ?>'>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <label><?= $rot_respagagc ?></label>
+                            <input class='form-control' type="text" size="5" name="forma_agencia" id="forma_agencia" value='<?= $forma_agencia ?? '' ?>' >
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="col-md-12">
+                            <label><?= $rot_respagcco ?></label>
+                            <input class='form-control' type="text" size="12" name="forma_conta_corrente" id="forma_conta_corrente"   value='<?= $forma_conta_corrente ?? '' ?>'>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="col-md-12">
+                            <label for="conresdep" <?= $pro_conresdep ?>>Referência de depósito ou transferência</label>
+                            <input class='form-control' type="text" name="respagref" id="respagref" value="<?= $respagref ?? '' ?>" placeholder="<?= $for_respagref ?>"  <?= $pro_respagref ?> <?= $val_respagref ?> />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <hr style="border-bottom: 1px solid #d9d9d9; margin-top: 25px; margin-bottom: 0;">
+                        </div>
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <span style="font-size: 16px;"><b>Pagamentos relacionados a</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='form-group row'>
+                    <div class="col-md-3">
+                        <div class="col-md-12">
+                            <label for="resdocnum" <?= $pro_resdocnum ?>><?= $rot_resdocnum ?></label>
+                            <input class='form-control' type="text" name="resdocnum" id="resdocnum" value="<?= $resdocnum ?? '' ?>" placeholder="<?= $for_resdocnum ?>" <?= $pro_resdocnum ?> <?= $val_resdocnum ?> />
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="col-md-12">
+                            <label for="resdocnum" <?= $pro_resdocnum ?>>Status </label>
+                            <input class='form-control' type="text" name="resdocnum" id="resdocnum" value="<?= $resdocnum ?? '' ?>" placeholder="<?= $for_resdocnum ?>" <?= $pro_resdocnum ?> <?= $val_resdocnum ?> />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-12" id="linha-1">
+                            <label for="cliprinom" <?= $pro_cliprinom ?>>Cliente </label>
+                            <input id='c_codigo' name='c_codigo' type="hidden" value="<?= $c_codigo ?? '' ?>" />
+                            <div class="es-wrap-input" style="position: relative;">
+                                <input style="background-position-x: 93%; padding-right: 14% !important;" class="form-control input_autocomplete" id='c_nome_autocomplete' type="text" name="cliprinom" value="<?= $cliprinom ?? '' ?>" placeholder="<?= $for_cliprinom ?>" <?= $pro_cliprinom ?> <?= $val_cliprinom ?> />
+                                <button class="es-form-button <?= $ace_clicadpes ?> clicadpes" type="button"  aria-cliente-codigo-id='c_codigo' aria-cliente-nome-id='c_nome_autocomplete' aria-cliente-cpf-cnpj-id=''>
+                                    <span class='ui-icon ui-icon-search'></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <button style="float: right;" class="es-default-button form-control btn-primary  submit-button" aria-form-id="conpagpes" type="submit" name="btn_exi_pag" id="btn_exi_pag"><i class="fa fa-search"></i> Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+
+
             </form>
         </div>
     </div>

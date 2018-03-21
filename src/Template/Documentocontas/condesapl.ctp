@@ -25,53 +25,61 @@ $geral = new Geral();
     </div>
 
     <div class="form-group">
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-3 col-sm-12">
             <label  class='control-label col-md-12 col-sm-12'><?= $rot_geranttit ?> (<?= $geral->germoeatr(); ?>)</label>
             <div class='col-md-12 col-sm-12'>
                 <input disabled="disabled" class='form-control' type="text" id="preco_anterior" value="<?= $geral->gersepatr($preco_anterior) ?>" />
             </div>
         </div>
-        <div class="col-md-3 col-sm-12">
-            <label class='col-md-12 col-sm-12 control-label'><span id="desconto_rotulo"><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?></span> </label>
-            <div class="col-md-12 col-sm-12">    
-                <input <?php if ($desc_cortesia == 'c') echo "disabled='disabled'"; ?> class='form-control <?php
-                if ($desconto_tipo == 'p')
-                    echo 'moeda_sem_decimais';
-                else
-                    echo 'moeda'
-                    ?> atualiza_valor_desconto desconto_fator' type="text" name="gerdesfat" id="gerdesfat" value="<?php
-                                                                                       if ($desconto_tipo == 'p')
-                                                                                           echo intval($desconto_fator);
-                                                                                       else
-                                                                                           echo $geral->gersepatr($desconto_fator)
-                                                                                           ?>" placeholder="<?= $for_gerdesfat ?>"   <?= $pro_gerdesfat ?> />
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <label class='control-label col-md-12 col-sm-12 <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' id="gerdestip_label">Unidade</label>
-            <div class="col-md-12 col-sm-12">   
-                <select class="form-control  <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>" <?= $pro_gerdestip ?> name="gerdestip" id="gerdestip" style="padding:0 !important">                     
-                    <option value="p" <?php if ($desconto_tipo == 'p') echo 'selected' ?>>%</option> 
-                    <option value="v"  <?php if ($desconto_tipo == 'v') echo 'selected' ?>><?= $geral->germoeatr(); ?></option> 
-                </select> 
-            </div>
-        </div>        
+
         <div class="col-md-3 col-sm-12">
             <label id="label-moeda" class='control-label col-md-12 col-sm-12  <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>'><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?> (<?= $geral->germoeatr(); ?>) </label>
             <div class='col-md-12 col-sm-12'>
                 <input readonly="readonly" class='form-control <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' type="text" name="gerdesval" id="gerdesval" value="<?= $geral->gersepatr($desconto_valor) ?>" />
             </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-3 col-sm-12">
             <label class='control-label col-md-12 col-sm-12'><?= $rot_gerposTit ?> (<?= $geral->germoeatr(); ?>) </label>
             <div class='col-md-12 col-sm-12'>
                 <input disabled="disabled" class='form-control' type="text" id="preco_posterior" value="<?= $geral->gersepatr($preco_posterior) ?>" />
             </div>
         </div>
-        <div class="col-md-8 col-sm-12" id="motivos-desconto" <?php if ($desc_cortesia != 'd') echo "style='display:none'"; ?> >
+
+    </div>
+
+    <div class="form-group">
+
+        <div class="col-md-3 col-sm-4">
+            <label class='control-label col-md-12 col-sm-12 <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' id="gerdestip_label">Unidade</label>
+            <div class="col-md-12 col-sm-12">
+                <select class="form-control  <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>" <?= $pro_gerdestip ?> name="gerdestip" id="gerdestip" style="padding:0 !important">
+                    <option value="p" <?php if ($desconto_tipo == 'p') echo 'selected' ?>>%</option>
+                    <option value="v"  <?php if ($desconto_tipo == 'v') echo 'selected' ?>><?= $geral->germoeatr(); ?></option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-3 col-sm-12">
+            <label class='col-md-12 col-sm-12 control-label'><span id="desconto_rotulo"><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?></span> </label>
+            <div class="col-md-12 col-sm-12">
+                <input <?php if ($desc_cortesia == 'c') echo "disabled='disabled'"; ?> class='form-control <?php
+                if ($desconto_tipo == 'p')
+                    echo 'moeda_sem_decimais';
+                else
+                    echo 'moeda'
+                ?> atualiza_valor_desconto desconto_fator' type="text" name="gerdesfat" id="gerdesfat" value="<?php
+                if ($desconto_tipo == 'p')
+                    echo intval($desconto_fator);
+                else
+                    echo $geral->gersepatr($desconto_fator)
+                ?>" placeholder="<?= $for_gerdesfat ?>"   <?= $pro_gerdesfat ?> />
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-12" id="motivos-desconto" <?php if ($desc_cortesia != 'd') echo "style='display:none'"; ?> >
             <label  class='control-label col-md-12 col-sm-12'><?= $rot_gertipmot ?> </label>
             <div class='col-md-12 col-sm-12'> 
                 <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_desc"> 
@@ -129,42 +137,47 @@ $geral = new Geral();
         </div>
     </div>
 
-    <div id="Exib_quarto_1">
-        <div id="exibir_quarto_inner" class="dados_item2">
-            <div class="col-md-12 col-sm-12 info_quarto" style="margin-bottom:0px; margin-top:5px">
-                <div class="col-md-9 col-sm-10 escd_info" onclick="exibi_info_quartos('#Exib_quarto_1');" >
-                    <a ></a>
-                    <strong style="font-size:14px;"><?= $rot_gerdesaut ?></strong>
-                </div>
-            </div>   
+    <div class="form-group">
+        <div class='col-md-12 col-sm-12'>
+            <div class='col-md-12 col-sm-12'>
+                <div id="Exib_quarto_1">
+                    <div id="exibir_quarto_inner" class="dados_item2">
+                        <div class="col-md-12 col-sm-12 info_quarto" style="margin-bottom:0px; margin-top:5px">
+                            <div class="col-md-9 col-sm-10 escd_info" onclick="exibi_info_quartos('#Exib_quarto_1');" >
+                                <a ></a>
+                                <strong style="font-size:14px;"><?= $rot_gerdesaut ?></strong>
+                            </div>
+                        </div>
 
-        </div>  
-        <div class="panel col-md-12 col-sm-12">
-            <div class='branco'>
-                <div class="col-md-4 col-sm-12">
-                    <label class='control-label col-md-12 col-sm-12' for="gerusucod" <?= $pro_gerusucod ?>><?= $rot_gerusucod ?> </label> 
-                    <div class='col-md-11 col-sm-12'> 
-                        <input class='form-control' type="text" name="gerusucod" id="gerusucod" value="<?= $usuario_codigo ?>" placeholder="<?= $for_gerusucod ?>"   <?= $pro_gerusucod ?> <?= $val_gerusucod ?> />
+                    </div>
+                    <div style="margin-bottom: 0;" class="panel es-panel-accordion col-md-12 col-sm-12">
+                        <div class='branco' style="padding: 0; padding-bottom: 20px;">
+                            <div class="col-md-4 col-sm-12">
+                                <label class='control-label col-md-12 col-sm-12' for="gerusucod" <?= $pro_gerusucod ?>><?= $rot_gerusucod ?> </label>
+                                <div class='col-md-12 col-sm-12'>
+                                    <input class='form-control' type="text" name="gerusucod" id="gerusucod" value="<?= $usuario_codigo ?>" placeholder="<?= $for_gerusucod ?>"   <?= $pro_gerusucod ?> <?= $val_gerusucod ?> />
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <label class='control-label col-md-12 col-sm-12' for="gerlogsen" <?= $pro_gerlogsen ?>><?= $rot_gerlogsen ?> </label>
+                                <div class='col-md-12 col-sm-12'>
+                                    <input type='password' class='form-control' type="text" name="gerlogsen" id="gerlogsen" value="<?= $usuario_senha ?>" placeholder="<?= $for_gerlogsen ?>"  <?= $pro_gerlogsen ?> <?= $val_gerlogsen ?> />
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
-                    <label class='control-label col-md-12 col-sm-12' for="gerlogsen" <?= $pro_gerlogsen ?>><?= $rot_gerlogsen ?> </label> 
-                    <div class='col-md-11 col-sm-12'> 
-                        <input type='password' class='form-control' type="text" name="gerlogsen" id="gerlogsen" value="<?= $usuario_senha ?>" placeholder="<?= $for_gerlogsen ?>"  <?= $pro_gerlogsen ?> <?= $val_gerlogsen ?> />
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12"></div>
             </div>
         </div>
     </div>
 
-    <div class="row col-md-12 col-sm-12 quat_botoes2">
-        <div class="col-md-6 col-sm-4"></div>
-        <div class="cancel-right col-md-3 col-sm-4 ui-dialog-btn-close">
-            <input type="button" class="form-control btn-default close_dialog" value="<?= $rot_gerdesbot ?>" >
-        </div>
-        <div class="pull-left col-md-3 col-sm-4">
-            <input  style="float:left" class="form-control btn-primary verifica_acesso_desconto_<?= $tipo_conta ?>" type="button" name="resmodbtn"  value="<?= $rot_gersalbot ?>">
+    <div class="row col-md-12 col-sm-12 quat_botoes2" style="margin-top: 5px;">
+        <div class="col-md-12 col-sm-12">
+            <div class="col-md-12 col-sm-12">
+                <button style="float: left; margin-left: 0;" type="button" class="form-control btn-default close_dialog es-default-button" ><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
+                <button  style="float:right" class="form-control btn-primary verifica_acesso_desconto_<?= $tipo_conta ?> es-default-button" type="button" name="resmodbtn" ><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
+            </div>
         </div>
     </div>
 </form>

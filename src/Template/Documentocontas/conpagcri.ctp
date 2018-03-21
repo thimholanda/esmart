@@ -45,12 +45,16 @@ $session = new Session();
 
             ?>
             <div class="row">
-                <h6><b><?= $rot_gerrsutit ?></b></h6>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <h6><b><?= $rot_gerrsutit ?></b></h6>
+                    </div>
+                </div>
             </div>
             <div class="row partida_dados">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="col-md-12">
-                        <a class="dialogo"><?= $rot_convalpag ?>: <?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar); ?>
+                        <a class="dialogo"><?= $rot_convalpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar); ?></b>
                             <div class="dialogo_inner_conpagcri"><h6><?= $rot_conparpag ?></h6>
                                 <div class="table-tooltip">
                                     <table class="table_cliclipes" >
@@ -92,28 +96,24 @@ $session = new Session();
                         </a>
                     </div>
 
-                    <div class="col-md-12">
-                        <?= $rot_contotpag ?>: <?= $geral->germoeatr() ?> <?= $geral->gersepatr($pago); ?>
+                    <div class="col-md-6">
+                        <?= $rot_contotpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($pago); ?></b>
                     </div>
-                    <div class="col-md-12">
-                        <?= $rot_consalpag ?>: <?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar - $pago); ?>
-                        <span style="display:none" id="somatoria_partida_valor"><?= $geral->gersepatr($a_pagar - $pago); ?></span>
-                    </div>    
-                    <input type="hidden" id="a_pagar" name="a_pagar" value="<?= $a_pagar - $pago ?>" />
-                </div>
-                <div class="col-md-6">
-                    <a class="dialogo">  <?= $rot_conpreaut ?>: <?= $geral->germoeatr() ?> <?= $geral->gersepatr($pre_autorizado); ?>
-                        <div class="dialogo_inner_conpagcri"><h6><?= $rot_conpreaut ?></h6>
-                            <div class="table-tooltip">
-                                <table class="table_cliclipes" >
-                                    <thead>
+
+                    <div class="col-md-6">
+
+                        <a class="dialogo">  <?= $rot_conpreaut ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($pre_autorizado); ?></b>
+                            <div class="dialogo_inner_conpagcri"><h6><?= $rot_conpreaut ?></h6>
+                                <div class="table-tooltip">
+                                    <table class="table_cliclipes" >
+                                        <thead>
                                         <tr>
                                             <th><?= $rot_conparres ?></th>
                                             <th><?= $rot_gerdattit ?></th>
                                             <th><?= $rot_respagval ?></th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                        </thead>
+                                        <tbody>
                                         <?php
                                         foreach ($partida_dados['partidas'] as $partida) {
                                             if ($partida['pre_autorizado'] != 0) {
@@ -127,12 +127,34 @@ $session = new Session();
                                             }
                                         }
                                         ?>
-                                    </tbody> 
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <?= $rot_consalpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar - $pago); ?></b>
+                        <span style="display:none" id="somatoria_partida_valor"><?= $geral->gersepatr($a_pagar - $pago); ?></span>
+                    </div>
+                    <input type="hidden" id="a_pagar" name="a_pagar" value="<?= $a_pagar - $pago ?>" />
+
+                    <div class="col-md-6">
+                        <div class="respagval_dados">
+                            <p><?= $rot_conapgate ?> <span style="color:red; font-style: italic"><?= Util::convertDataDMY($geral->geragodet(1)) ?></span> : <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($somatoria_partida_valor) ?></b></p>
                         </div>
-                    </a>
+                    </div>
+
+                    <div class="col-md-12">
+                        <hr style="display: inline-block; width: 100%;">
+                    </div>
+
                 </div>
+
+
+
             </div>
 
 
@@ -177,9 +199,18 @@ $session = new Session();
 
     <?php } ?>
 
-    <div class="respagval_dados">
-        <p><?= $rot_conapgate ?> <span style="color:red; font-style: italic"><?= Util::convertDataDMY($geral->geragodet(1)) ?></span> : <?= $geral->germoeatr() ?> <?= $geral->gersepatr($somatoria_partida_valor) ?></p>
+    <?php #TODO: Fernando Vale - modificar dados dos radios de acordo com as regras de negócio. ?>
+
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-12">
+            <div class="col-md-2 col-sm-2">
+                <label class="radio-inline"><input type="radio" name="desc_cortesia" value="d">Pagamento</label>
+                <label class="radio-inline"><input type="radio" name="desc_cortesia" value="c">Reembolso</label>
+            </div>
+        </div>
     </div>
+
+
 
    <!-- <button type="button" class="accordion-pgto active pagamento"><?= $rot_conpagtit ?> <span id="rotulo_pagamento_1"></span>
         <div class="row col-md-1 pull-right">
@@ -192,77 +223,94 @@ $session = new Session();
             <input class="form-control btn-primary fechar_acordion" aria-linha-reembolso="1" id="fechar_acordion_1" type="button" value="X" style="width:30px; float:right; display:none">
         </div>
     </button>-->
-    <div class="form-group col-md-12">
-        <div class="form-group col-md-4">
-            <select class="form-control pagamento_reembolso">
-                <option value="pagamento"><?= $rot_conpagtit ?></option>
-                <option value="reembolso"><?= $rot_gerreetit ?></option>
-            </select>   
-        </div>
-    </div>
-    <div class="pagamento_forma_dados" id="pagamento_forma_dados_1">
-        <div class="form-group col-md-12">
-            <div class="panel col-md-12 show">
-                <div class='form-group'>
-                    <label class='col-md-3'><?= $rot_respagfor ?>:</label>
-                    <div class='col-md-4'>
-                        <select class='form-control respagreg' name='respagfor_1' id='respagfor_1' aria-linha-pagamento="1" data-validation='required'>
-                            <option value="" selected="selected"></option>
-                            <?php foreach ($var_respagfor as $item_respafor) { ?>
-                                <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>|<?= $item_respafor['contabil_tipo'] ?>">
-                                    <?= $item_respafor["pagamento_forma_nome"] ?>
-                                </option> 
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-1"><b><?= $rot_respagnom ?></b></label>
-                    <div class='col-md-3 col-sm-3'> 
-                        <input  type="hidden" name="pag_codigo_1" id="pag_codigo_1" value='<?= $pagante_codigo ?>' />
-                        <input  class='form-control pagante_nome' type="text" name="pagante_nome_1" id='pagante_nome_1' value='<?= $pagante_nome ?>'  data-validation='required' />
-                    </div>
-                    <div class="col-md-1">
-                        <button id="clibtnpes" class='clicadmod' aria-cliente-codigo-id='pag_codigo_1' aria-cliente-codigo="<?= $pagante_codigo ?>" aria-cliente-nome-id='pagante_nome_1' aria-cliente-cpf-cnpj-id='pagante_cpf_cnpj_1' type="button">
-                            <span class='ui-icon ui-icon-pencil'></span>
-                        </button>
-                        <button id="clibtnpes" class='clicadpes' aria-cliente-codigo-id='pag_codigo_1' aria-cliente-nome-id='pagante_nome_1' aria-cliente-cpf-cnpj-id='pagante_cpf_cnpj_1' type="button">
-                            <span class='ui-icon ui-icon-search'></span>
-                        </button>
-                    </div>
-                    <label class="col-md-1"><b><?= $rot_clicpfnum ?> / <?= $rot_clicadcnp ?></b></label>
-                    <div class='col-md-2 col-sm-3'> 
-                        <input  class='form-control cpfcnpj' type="text" name="pagante_cpf_cnpj_1" id='pagante_cpf_cnpj_1' maxlength="18" value='<?= $pagante_cpf_cnpj ?>'  data-validation="cpfcnpj" data-validation-optional="false"  />
-                    </div>
+    <?php #TODO: Fernando Vale - remover select. ?>
+<!--    <div class="form-group col-md-12">-->
+<!--        <div class="form-group col-md-4">-->
+<!--            <select class="form-control pagamento_reembolso">-->
+<!--                <option value="pagamento">--><?//= $rot_conpagtit ?><!--</option>-->
+<!--                <option value="reembolso">--><?//= $rot_gerreetit ?><!--</option>-->
+<!--            </select>   -->
+<!--        </div>-->
+<!--    </div>-->
 
-                    <input type="hidden" name="linha_pgto_atual" id="linha_pgto_atual" value="" />
-                    <div id="div_saldo_credito_1" style="display: none">
-                        <label  class="col-md-2"><b><?= $rot_concresal ?> <?= $geral->germoeatr() ?></b> </label>
-                        <div class='col-md-2 col-sm-1'>
-                            <div class="col-md-9">
-                                <input class='form-control' type="text" readonly name="saldo_credito_1" id="saldo_credito_1">
-                            </div>
-                            <div class="col-md-2">
-                                <button  style="padding: 4px;background-color:none" type="button"  
-                                         onclick="concreexi_dialog(1);" >
-                                    <span class='ui-icon ui-icon-search'></span>
-                                </button>
+    <div class="row">
+        <div class="col-md-3">
+            <label class="col-md-12"><?= $rot_respagnom ?></label>
+            <div class='col-md-12 col-sm-12'>
+                <input  type="hidden" name="pag_codigo_1" id="pag_codigo_1" value='<?= $pagante_codigo ?>' />
+                <input  class='form-control pagante_nome' type="text" name="pagante_nome_1" id='pagante_nome_1' value='<?= $pagante_nome ?>'  data-validation='required' />
+
+                <button style="right: 30px; z-index: 1;" id="clibtnpes" class='es-form-button clicadmod' aria-cliente-codigo-id='pag_codigo_1' aria-cliente-codigo="<?= $pagante_codigo ?>" aria-cliente-nome-id='pagante_nome_1' aria-cliente-cpf-cnpj-id='pagante_cpf_cnpj_1' type="button">
+                    <span class='ui-icon ui-icon-pencil'></span>
+                </button>
+
+                <button style="right: 5px;" id="clibtnpes" class='es-form-button clicadpes' aria-cliente-codigo-id='pag_codigo_1' aria-cliente-nome-id='pagante_nome_1' aria-cliente-cpf-cnpj-id='pagante_cpf_cnpj_1' type="button">
+                    <span class='ui-icon ui-icon-search'></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label class="col-md-12"><?= $rot_clicpfnum ?> / <?= $rot_clicadcnp ?></label>
+            <div class='col-md-12 col-sm-12'>
+                <input  class='form-control cpfcnpj' type="text" name="pagante_cpf_cnpj_1" id='pagante_cpf_cnpj_1' maxlength="18" value='<?= $pagante_cpf_cnpj ?>'  data-validation="cpfcnpj" data-validation-optional="false"  />
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="pagamento_forma_dados" id="pagamento_forma_dados_1">
+                <div class="form-group col-md-12" style="margin-bottom: 0;">
+                    <div class="panel es-custom-panel col-md-12 show">
+                        <div class='form-group' style="margin-bottom: 0;">
+                            <label class='col-md-12'><?= $rot_respagfor ?></label>
+                            <div class='col-md-3'>
+                                <select style="margin-bottom: 0;" class='form-control respagreg' name='respagfor_1' id='respagfor_1' aria-linha-pagamento="1" data-validation='required'>
+                                    <option value="" selected="selected"></option>
+                                    <?php foreach ($var_respagfor as $item_respafor) { ?>
+                                        <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>|<?= $item_respafor['contabil_tipo'] ?>">
+                                            <?= $item_respafor["pagamento_forma_nome"] ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
+                        <div class="form-group">
+
+                            <input type="hidden" name="linha_pgto_atual" id="linha_pgto_atual" value="" />
+                            <div id="div_saldo_credito_1" style="display: none">
+                                <label  class="col-md-2"><b><?= $rot_concresal ?> <?= $geral->germoeatr() ?></b> </label>
+                                <div class='col-md-2 col-sm-1'>
+                                    <div class="col-md-9">
+                                        <input class='form-control' type="text" readonly name="saldo_credito_1" id="saldo_credito_1">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button  style="padding: 4px;background-color:none" type="button"
+                                                 onclick="concreexi_dialog(1);" >
+                                            <span class='ui-icon ui-icon-search'></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='div_respagreg_1'>
+                        </div>
                     </div>
-                </div>
-                <div id='div_respagreg_1'>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row" style="margin-bottom:10px">
-        <a href="#" class="conitecri_pagamento_adicional"><?= $rot_conpagadi ?></a>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <a style="float: right; margin-top: 5px;" href="#" class="conitecri_pagamento_adicional"><i class="fa fa-plus-circle"></i> <?= $rot_conpagadi ?></a>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-        <input type="button" class="close_dialog" value="<?= $rot_gerdesbot ?>">
-        <input style="float:left; display:none" class="submit-button" type="submit" aria-form-id="conpagcri" name="gersalbot"  id="conpagcri_button" >
-        <input style="float:left;" class="btn-primary" type="button" name="gersalbot" onclick="conpagval()" value="<?= $rot_gersalbot ?>" >
+    <div class="row" style="margin-top: 40px;">
+        <button type="button" class="close_dialog es-default-button" style="width: 170px; float: left;"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
+        <button style="float:right; display:none" class="submit-button es-default-button" type="submit" aria-form-id="conpagcri" name="gersalbot"  id="conpagcri_button" >Enviar</button>
+        <button style="float:right;" class="btn-primary es-default-button" type="button" name="gersalbot" onclick="conpagval()"><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
     </div>
 </form>
