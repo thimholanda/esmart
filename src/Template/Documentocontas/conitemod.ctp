@@ -27,7 +27,7 @@ $documento_conta = new DocumentoConta();
             <input type="hidden" name="pagina_referencia"  id="pagina_referencia" value="<?= $pagina_referencia ?>">
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label col-md-12 col-sm-12" for="geritetit" <?= $pro_geritetit ?>><?= $rot_geritetit ?> </label>
                         <div class="col-md-12 col-sm-12">
@@ -36,7 +36,7 @@ $documento_conta = new DocumentoConta();
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class='control-label col-md-12 col-sm-12 ' for="concontip" <?= $pro_concontip ?>><?= $rot_concontip ?>: </label>
                         <div class='col-md-12 col-sm-12' id="contabil_tipo_exibicao" style="margin-top: 0;">
@@ -45,11 +45,8 @@ $documento_conta = new DocumentoConta();
                     </div>
                 </div>
 
-            </div>
 
-            <div class="row">
-
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class='control-label col-md-12 col-sm-12 ' for="gerdattit" <?= $pro_gerdattit ?>><?= $rot_gerdatcon ?>: </label>
                         <div class='col-md-12 col-sm-12'>
@@ -58,7 +55,7 @@ $documento_conta = new DocumentoConta();
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
 
                         <label class='control-label col-md-12 col-sm-12' for="convenpon" <?= $pro_convenpon ?>><?= $rot_convenpon ?>: </label>
@@ -91,7 +88,7 @@ $documento_conta = new DocumentoConta();
 
             <div class="row">
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class="control-label col-md-12 col-sm-12" for="conprocod" <?= $pro_conprocod ?>><?= $rot_conprocod ?> </label>
                         <div class="col-md-12 col-sm-12">
@@ -105,7 +102,7 @@ $documento_conta = new DocumentoConta();
 
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class='control-label col-md-12 col-sm-12' for="conproqtd" <?= $pro_conproqtd ?>><?= $rot_conproqtd ?>: </label>
                         <div class='col-md-12 col-sm-12'>
@@ -117,18 +114,15 @@ $documento_conta = new DocumentoConta();
                     </div>
                 </div>
 
-            </div>
 
-            <div class="row">
-
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
                         <label class='control-label col-md-12 col-sm-12' for="conpreuni" <?= $pro_conpreuni ?>><?= $rot_conpreuni ?> <?= $geral->germoeatr() ?>: </label>
                         <div class='col-md-12 col-sm-12'> <input readonly="readonly" class='form-control' type="text" name="conpreuni" id="conpreuni" value="<?= $geral->gersepatr($conpreuni ?? '') ?>" placeholder="<?= $for_conpreuni ?>"  <?= $pro_conpreuni ?> <?= $val_conpreuni ?> /></div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-3">
 
                     <label class='control-label col-md-12 col-sm-12' for="conpretot" <?= $pro_conpretot ?>><?= $rot_conpretot ?> <?= $geral->germoeatr() ?>: </label>
                     <div class='col-md-12 col-sm-12'>

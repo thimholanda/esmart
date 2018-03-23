@@ -29,9 +29,6 @@ $geral = new Geral();
                 <?= $rot_respagnom . ": " ?> <b><a href="#a" class="clicadmod link_ativo close_dialog_redirect_page" aria-cliente-codigo = '<?= $respagcli ?>'><?= $pagante_nome . ' ' . $pagante_sobrenome ?></a></b>
             </div>
         </div>
-    </div>
- 
-   <div class='conteudoB mr1'>
 
         <div class="col-md-12">
             <div class="col-md-4 conteudo">

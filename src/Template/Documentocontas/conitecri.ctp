@@ -117,36 +117,45 @@ $geral = new Geral();
         </div>
 
 
-        <div class='form-group' id='item_desconto_geral' style="display:none">
-            <label class='control-label col-md-1 col-sm-12'><?= $rot_gertipmot ?> </label>
-            <div class='col-md-4 col-sm-12'> 
-                <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_geral_desc"> 
-                    <?php
-                    foreach ($gertipmot_list_desc as $item) { ?>
-                        <option value="<?= $item["valor"] ?>"><?= $item["rotulo"] ?> </option> 
-                    <?php } ?> 
-                </select>   
+        <div id='item_desconto_geral' class="row" style="display: none;">
 
-                <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_geral_acre"> 
-                    <?php
-                    foreach ($gertipmot_list_acre as $item) {
-                        ?>
-                        <option value="<?= $item["valor"] ?>"><?= $item["rotulo"] ?> </option> 
-                    <?php } ?> 
-                </select>  
+            <div class="col-md-3">
+                <div class='col-md-12 col-sm-12'>
+                    <label style="padding-left: 0;" class='col-md-1 col-sm-12'><?= $rot_gertipmot ?> </label>
+
+                    <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_geral_desc">
+                        <?php
+                        foreach ($gertipmot_list_desc as $item) { ?>
+                            <option value="<?= $item["valor"] ?>"><?= $item["rotulo"] ?> </option>
+                        <?php } ?>
+                    </select>
+
+                    <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_geral_acre">
+                        <?php
+                        foreach ($gertipmot_list_acre as $item) {
+                            ?>
+                            <option value="<?= $item["valor"] ?>"><?= $item["rotulo"] ?> </option>
+                        <?php } ?>
+                    </select>
+                </div>
             </div>
-            <label class='control-label col-md-1 col-sm-12' for="gerobstit"><?= $rot_gerobstit ?> </label> 
-            <div class='col-md-4 col-sm-12'> 
-                <textarea maxlength="50" style="height: 50px !important;" class='form-control' type="text" name="gerobstit" id="gerobstit" placeholder="<?= $for_gerobstit ?>"  <?= $pro_gerobstit ?> <?= $val_gerobstit ?>></textarea>
+
+            <div class="col-md-3">
+                <div class='col-md-12 col-sm-12'>
+                    <label style="padding-left: 0;" class='control-label col-md-1 col-sm-12' for="gerobstit"><?= $rot_gerobstit ?> </label>
+                    <textarea class='col-md-12 col-sm-12' maxlength="50" style="height: 50px !important; border-color: #ccc;" class='form-control' type="text" name="gerobstit" id="gerobstit" placeholder="<?= $for_gerobstit ?>"  <?= $pro_gerobstit ?> <?= $val_gerobstit ?>></textarea>
+                </div>
             </div>
+
         </div>
+
         <div class="row" style="margin-top: 20px;">
             <?php if ($modo_exibicao == 'tela') { ?>
                 <input style="float:left; margin-right:10px" type="button"  value="<?= $rot_gerdesbot ?>" class="es-default-button" onclick="gerpagexi($('#url_redirect_after').val(), 1, {})">
             <?php } else { ?>
                 <button style="float:left; margin-right:10px; width: 170px;" type="button" class="close_dialog es-default-button"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
             <?php } ?>
-            <button style="float:right;" class="es-default-button btn-primary submit-button" type="submit" aria-form-id="conitecri" name="resmodbtn" ><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
+            <button style="float:right;" class="es-default-button btn-primary btn submit-button" type="submit" aria-form-id="conitecri" name="resmodbtn" ><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
         </div>
     <?php } else { ?>
 

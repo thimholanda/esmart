@@ -310,7 +310,7 @@ $session = new Session();
 
     <div class="row" style="margin-top: 40px;">
         <button type="button" class="close_dialog es-default-button" style="width: 170px; float: left;"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
-        <button style="float:right; display:none" class="submit-button es-default-button" type="submit" aria-form-id="conpagcri" name="gersalbot"  id="conpagcri_button" >Enviar</button>
-        <button style="float:right;" class="btn-primary es-default-button" type="button" name="gersalbot" onclick="conpagval()"><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
+        <button style="float:right; display:none" class="es-default-button btn-primary btn submit-button" type="submit" aria-form-id="conpagcri" name="gersalbot"  id="conpagcri_button" >Enviar</button>
+        <button style="float:right;" class="btn-primary btn es-default-button" type="button" name="gersalbot" onclick="conpagval()"><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
     </div>
 </form>

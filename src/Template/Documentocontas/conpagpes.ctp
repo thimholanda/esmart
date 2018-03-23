@@ -16,7 +16,7 @@ $geral = new Geral();
 <div class="content_inner">
     <div class="formulario">
         <div style="margin-bottom: 15px">
-            <form method="POST" name="conpagpes" id="conpagpes" action="<?= Router::url('/', true) ?>documentocontas/conpagpes" class="form-horizontal" >
+            <div method="POST" name="conpagpes" id="conpagpes" action="<?= Router::url('/', true) ?>documentocontas/conpagpes" class="form-horizontal" >
                 <input type="hidden" id="pesquisar_pagamentos" name="pesquisar_pagamentos" value="no">
                 <input type="hidden" id="form_atual" value="conpagpes" />
                 <input type="hidden" id="form_force_submit" value="0" />
@@ -62,7 +62,7 @@ $geral = new Geral();
 
 
                 <div class="form-group row">
-                    <div class='col-md-3 col-sm-3'">
+                    <div class='col-md-2 col-sm-3'">
                         <div class="col-md-12">
                             <label for="conpagdai" <?= $pro_conpagdai ?>>Início</label>
                             <input class='form-control datepicker data data_incrementa_igual' aria-id-campo-filho='conpagdaf'  type="text" name="gerdattit_inicio" id="conpagdai"
@@ -75,7 +75,7 @@ $geral = new Geral();
                         </div>
                     </div>
 
-                    <div class='col-md-3 col-sm-3'>
+                    <div class='col-md-2 col-sm-3'>
                         <div class="col-md-12">
                             <label for="conpagdai" <?= $pro_conpagdai ?>>Fim</label>
                             <input class='form-control datepicker data' type="text" name="gerdattit_final" id="conpagdaf"  aria-id-campo-dependente="conpagdai"
@@ -87,14 +87,14 @@ $geral = new Geral();
                         </div>
                     </div>
 
-                    <div class='col-md-3 col-sm-3'>
+                    <div class='col-md-2 col-sm-3'>
                         <div class="col-md-12">
                             <label><?= $rot_respagval ?></label>
                             <input class='form-control moeda' type="text" placeholder="<?= $for_respagval ?>" name="forma_valor" id="forma_valor" value="<?= $forma_valor ?? '' ?>">
                         </div>
                     </div>
 
-                    <div class='col-md-3 col-sm-3'>
+                    <div class='col-md-2 col-sm-3'>
                         <div class="col-md-12">
                             <label for="respagfor" <?= $pro_respagfor ?>><?= $rot_respagfor ?> </label>
                             <select class = 'form-control' name = 'respagfor' id = 'respagfor'>
@@ -116,10 +116,6 @@ $geral = new Geral();
                         </div>
                     </div>
 
-                </div>
-
-
-                <div class='form-group row'>
 
                     <div class="col-md-2">
                         <div class="col-md-12">
@@ -135,6 +131,9 @@ $geral = new Geral();
 
                         </div>
                     </div>
+                </div>
+
+                <div class="form-group row">
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <label><?= $rot_respagagc ?></label>
@@ -142,7 +141,7 @@ $geral = new Geral();
 
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="col-md-12">
                             <label><?= $rot_respagcco ?></label>
                             <input class='form-control' type="text" size="12" name="forma_conta_corrente" id="forma_conta_corrente"   value='<?= $forma_conta_corrente ?? '' ?>'>
@@ -170,26 +169,26 @@ $geral = new Geral();
                 </div>
 
                 <div class='form-group row'>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="col-md-12">
                             <label for="resdocnum" <?= $pro_resdocnum ?>><?= $rot_resdocnum ?></label>
                             <input class='form-control' type="text" name="resdocnum" id="resdocnum" value="<?= $resdocnum ?? '' ?>" placeholder="<?= $for_resdocnum ?>" <?= $pro_resdocnum ?> <?= $val_resdocnum ?> />
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="col-md-12">
                             <label for="resdocnum" <?= $pro_resdocnum ?>>Status </label>
                             <input class='form-control' type="text" name="resdocnum" id="resdocnum" value="<?= $resdocnum ?? '' ?>" placeholder="<?= $for_resdocnum ?>" <?= $pro_resdocnum ?> <?= $val_resdocnum ?> />
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <div class="col-md-12" id="linha-1">
                             <label for="cliprinom" <?= $pro_cliprinom ?>>Cliente </label>
                             <input id='c_codigo' name='c_codigo' type="hidden" value="<?= $c_codigo ?? '' ?>" />
                             <div class="es-wrap-input" style="position: relative;">
-                                <input style="background-position-x: 93%; padding-right: 14% !important;" class="form-control input_autocomplete" id='c_nome_autocomplete' type="text" name="cliprinom" value="<?= $cliprinom ?? '' ?>" placeholder="<?= $for_cliprinom ?>" <?= $pro_cliprinom ?> <?= $val_cliprinom ?> />
+                                <input style="background-position-x: 78%; padding-right: 37% !important;" class="form-control input_autocomplete" id='c_nome_autocomplete' type="text" name="cliprinom" value="<?= $cliprinom ?? '' ?>" placeholder="<?= $for_cliprinom ?>" <?= $pro_cliprinom ?> <?= $val_cliprinom ?> />
                                 <button class="es-form-button <?= $ace_clicadpes ?> clicadpes" type="button"  aria-cliente-codigo-id='c_codigo' aria-cliente-nome-id='c_nome_autocomplete' aria-cliente-cpf-cnpj-id=''>
                                     <span class='ui-icon ui-icon-search'></span>
                                 </button>

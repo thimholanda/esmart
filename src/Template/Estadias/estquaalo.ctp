@@ -27,8 +27,8 @@ $datas = explode("|", $reserva_dados['datas']);
         ?>
 
         <div class="row col-md-12 col-sm-12 quat_botoes2 text-center" style="margin-top: 20px; margin-bottom: 20px;">
-            <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: left; min-width: 177px;" type="button"><i class="fa fa-times-circle"></i><?= $rot_gerdesbot ?></button>
-            <button id="estchicri_bot_2" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: right; min-width: 177px;" class="form-control btn-primary estquaalo" type="button"><i class="fa fa-check-circle"></i> <?= $rot_geralobot ?></button>
+            <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: left; min-width: 170px;" type="button"><i class="fa fa-times-circle"></i><?= $rot_gerdesbot ?></button>
+            <button id="estchicri_bot_2" style="width: auto; display: inline-block; vertical-align: middle; margin: 0; float: right; min-width: 170px;" class="form-control btn-primary estquaalo" type="button"><i class="fa fa-check-circle"></i> <?= $rot_geralobot ?></button>
         </div>
     </div>
 </form>

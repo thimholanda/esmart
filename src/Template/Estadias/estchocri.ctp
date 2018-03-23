@@ -71,8 +71,8 @@ $datas = explode("|", $reserva_dados[$indice_quarto_item_atual]['datas']);
     echo $this->element('conta/conresexi_elem', ['pesquisa_contas' => $pesquisa_contas, 'geracever_conitecri' => '', 'redirect_page' => '/reservas/resdocpes',
         'opcao_add_conta' => false, 'back_page' => '', 'has_form' => '1', 'form_id' => 'estchocri', 'has_link' => 0, 'evento' => 2, 'modo_exibicao' => 'dialog', 'tela' => 'estchocri']);
     ?>
-    <div class="row col-md-12 col-sm-12 quat_botoes2 text-center">
-        <button class="form-control btn-default close_dialog" style="width: auto; display: inline-block;" type="button"><i class="fa fa-times-circle"></i><?= $rot_gerdesbot ?></button>
+    <div class="row col-md-12 col-sm-12 quat_botoes2">
+        <button class="form-control btn-default close_dialog es-default-button" style="margin: 0; margin-bottom: 15px; width: auto; display: inline-block;" type="button"><i class="fa fa-times-circle"></i><?= $rot_gerdesbot ?></button>
     </div>
 </form>
 

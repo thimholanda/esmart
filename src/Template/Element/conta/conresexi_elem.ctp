@@ -256,7 +256,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
 
                     <div class="col-md-12 text-center" style="padding: 0;">
                         <?php if ($checkout_habilitado) { ?>
-                            <button class="form-control btn-primary" style="width: auto; min-width: 130px; float: right; margin: 10px 0;" type="button" onclick="$('#checkout_todos_quartos').val(0);
+                            <button class="form-control btn-primary" style="width: auto; min-width: 170px; float: right; margin: 10px 0;" type="button" onclick="$('#checkout_todos_quartos').val(0);
                                             $('#quarto_item_checkout').val(<?= $quarto_item ?>);
                                             estchocri()"><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?></button>
                         <?php } ?>
@@ -333,11 +333,11 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
 
                 <div class="row es-inner-row es-inner-row-gray" style="padding-bottom: 10px;">
 
-                    <button style="min-width: 177px;" class="form-control btn-default es-btn-right" type="button"
+                    <button style="min-width: 170px;" class="form-control btn-default es-btn-right" type="button"
                            onclick="$('div[id^=\'conta_pdf_quarto_item_\']').css('display', 'block');
                                        PrintElem('conresexi_pdf')"><i class="fa fa-print"></i> <?= $rot_gerimptit ?></button>
                     <?php if ($pagamento_geral_habilitado) { ?>
-                            <button style="min-width: 177px;" class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_all').click()"><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
+                            <button style="min-width: 170px;" class="form-control btn-primary es-btn-right" type="button" onclick="$('#conpagcri_button_all').click()"><i class="fa fa-credit-card"></i> <?= $rot_conpagbot ?></button>
                     <?php } ?>
                     <div class="es-inline-elements" >
                         <label><b>Despesas: <br></b></label> <?= $geral->germoeatr() ?> <?= $geral->gersepatr($total_despesas_geral) ?>
@@ -357,7 +357,7 @@ if (isset($pesquisa_contas) && count($pesquisa_contas) > 0) {
                 <div class="col-md-12 text-center" style="padding: 0; margin-top: 10px;">
                     <?php if ($checkout_geral_habilitado) { ?>
 
-                        <button style="width: auto; min-width: 177px; display: inline-block; margin-bottom: 10px;" class="form-control btn-primary es-btn-right" type="button" onclick="$('#checkout_todos_quartos').val(1);
+                        <button style="width: auto; min-width: 170px; display: inline-block; margin-bottom: 10px;" class="form-control btn-primary es-btn-right" type="button" onclick="$('#checkout_todos_quartos').val(1);
                                         estchocri()"
                                ><i class="fa fa-sign-out"></i> <?= $rot_gerchotit ?> todos os quartos</button>
                     <?php } ?>

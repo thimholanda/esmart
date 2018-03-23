@@ -660,13 +660,36 @@ a.link_ativo:hover{
     top: 0;
     right: 0;
     height: 100%;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 1;
+    transition: all .2s;
+}
+
+.es-form-button .ui-icon-search{
+    background: transparent url("http://phpstack-155810-448358.cloudwaysapps.com/img/lupa-1.png") no-repeat center;
+    background-size: auto 100%;
+}
+
+.es-form-button .ui-icon-pencil{
+    background: transparent url("http://phpstack-155810-448358.cloudwaysapps.com/img/lapis-1.png") no-repeat center;
+    background-size: auto 100%;
+}
+
+.es-form-button:hover{
+    opacity: .7;
 }
 
 .es-custom-panel{
+    border: 0;
+    box-shadow: none;
+    background: transparent;
     margin-top: 20px;
-    border: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     padding-bottom: 0px !important;
     margin-bottom: 0;
+    padding-top: 28px !important;
 }
 
 .es-custom-panel .list_rescli_inner{

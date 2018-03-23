@@ -32,7 +32,7 @@ $geral = new Geral();
             </div>
         </div>
 
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12" style="<?php if ($desc_cortesia == 'c') echo 'display_none'; ?>">
             <label id="label-moeda" class='control-label col-md-12 col-sm-12  <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>'><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?> (<?= $geral->germoeatr(); ?>) </label>
             <div class='col-md-12 col-sm-12'>
                 <input readonly="readonly" class='form-control <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' type="text" name="gerdesval" id="gerdesval" value="<?= $geral->gersepatr($desconto_valor) ?>" />
@@ -46,9 +46,6 @@ $geral = new Geral();
             </div>
         </div>
 
-    </div>
-
-    <div class="form-group">
 
         <div class="col-md-3 col-sm-4">
             <label class='control-label col-md-12 col-sm-12 <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' id="gerdestip_label">Unidade</label>
@@ -95,7 +92,7 @@ $geral = new Geral();
             </div>
         </div>
 
-        <div class="col-md-8 col-sm-12"  id="motivos-cortesia" <?php if ($desc_cortesia != 'c') echo "style='display:none'"; ?>>
+        <div class="col-md-6 col-sm-12"  id="motivos-cortesia" <?php if ($desc_cortesia != 'c') echo "style='display:none'"; ?>>
             <label  class='control-label col-md-12 col-sm-12'><?= $rot_gertipmot ?> </label>
             <div class='col-md-12 col-sm-12'> 
                 <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_cort"> 
@@ -111,7 +108,7 @@ $geral = new Geral();
             </div>
         </div>
 
-        <div class="col-md-8 col-sm-12"  id="motivos-acrescimo" <?php if ($desc_cortesia != 'a') echo "style='display:none'"; ?>>
+        <div class="col-md-6 col-sm-12"  id="motivos-acrescimo" <?php if ($desc_cortesia != 'a') echo "style='display:none'"; ?>>
             <label  class='control-label col-md-12 col-sm-12'><?= $rot_gertipmot ?> </label>
             <div class='col-md-12 col-sm-12'> 
                 <select class="form-control" <?= $pro_gertipmot ?> name="gertipmot" id="gertipmot_acre"> 
@@ -152,19 +149,18 @@ $geral = new Geral();
                     </div>
                     <div style="margin-bottom: 0;" class="panel es-panel-accordion col-md-12 col-sm-12">
                         <div class='branco' style="padding: 0; padding-bottom: 20px;">
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-6 col-sm-12">
                                 <label class='control-label col-md-12 col-sm-12' for="gerusucod" <?= $pro_gerusucod ?>><?= $rot_gerusucod ?> </label>
                                 <div class='col-md-12 col-sm-12'>
                                     <input class='form-control' type="text" name="gerusucod" id="gerusucod" value="<?= $usuario_codigo ?>" placeholder="<?= $for_gerusucod ?>"   <?= $pro_gerusucod ?> <?= $val_gerusucod ?> />
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-6 col-sm-12">
                                 <label class='control-label col-md-12 col-sm-12' for="gerlogsen" <?= $pro_gerlogsen ?>><?= $rot_gerlogsen ?> </label>
                                 <div class='col-md-12 col-sm-12'>
                                     <input type='password' class='form-control' type="text" name="gerlogsen" id="gerlogsen" value="<?= $usuario_senha ?>" placeholder="<?= $for_gerlogsen ?>"  <?= $pro_gerlogsen ?> <?= $val_gerlogsen ?> />
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-12"></div>
                         </div>
                     </div>
                 </div>

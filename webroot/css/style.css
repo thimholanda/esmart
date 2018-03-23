@@ -131,6 +131,7 @@ button:focus, button:visited, button:active{
 
 .mr1{
     margin-right:30px!important;
+    padding: 10px 5px;
 
 
 }
@@ -149,7 +150,7 @@ button:focus, button:visited, button:active{
 }
 
 .conteudo{
-    line-height:40px!important;
+    line-height:1.7rem!important;
 
 
 }
