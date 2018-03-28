@@ -22,16 +22,13 @@ $geral = new Geral();
 
         <div class="row">
             <div class="col-md-6">
-                <div class='form-group'>
                     <label class='control-label col-md-12 col-sm-12' for="gerdattit" <?= $pro_gerdattit ?>><?= $rot_gerdatcon ?> * </label>
                     <div class='col-md-12 col-sm-12'>
                         <input required="required"  class='form-control datepicker data' type="text" name="gerdattit" id="gerdattit" value="<?= date('d/m/Y') ?>" placeholder="<?= $for_gerdattit ?>"  <?= $pro_gerdattit ?> <?= $val_gerdattit ?> />
                     </div>
-                </div>
             </div>
 
             <div class="col-md-6">
-                <div class='form-group'>
                     <label class='control-label col-md-12 col-sm-12' for="convenpon" <?= $pro_convenpon ?>><?= $rot_convenpon ?> </label>
                     <?php
                     // se tiver apenas 1 pdv
@@ -55,7 +52,6 @@ $geral = new Geral();
                         </div>
 
                     <?php } ?>
-                </div>
             </div>
         </div>
 
@@ -107,9 +103,9 @@ $geral = new Geral();
                 <div class='form-group'>
 
                     <label class='control-label col-md-12 col-sm-12' for="conpretot" <?= $pro_conpretot ?>><?= $rot_conpretot ?> <?= $geral->germoeatr() ?> </label>
-                    <div class='col-md-12 col-sm-12' style="padding-right: 0;">
+                    <div class='col-md-12 col-sm-12'>
                         <input disabled="disabled" class='form-control moeda' type="text" name="conpretot" id="conpretot" value="" placeholder="<?= $for_conpretot ?>"  <?= $pro_conpretot ?> <?= $val_conpretot ?> />
-                        <button class="es-form-button <?= $ace_condesapl ?> condesapl" title="Modificar valores" id="conbtndes" style="padding: 4px;background-color:none" type="button"><span class='ui-icon ui-icon-pencil'></span></button>
+                        <button class="es-form-button <?= $ace_condesapl ?> condesapl" title="Modificar valores" id="conbtndes" style="padding: 4px;background-color:none; right: 5px;" type="button"><span class='ui-icon ui-icon-pencil'></span></button>
                     </div>
                 </div>
             </div>
@@ -119,7 +115,7 @@ $geral = new Geral();
 
         <div id='item_desconto_geral' class="row" style="display: none;">
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class='col-md-12 col-sm-12'>
                     <label style="padding-left: 0;" class='col-md-1 col-sm-12'><?= $rot_gertipmot ?> </label>
 
@@ -140,23 +136,26 @@ $geral = new Geral();
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class='col-md-12 col-sm-12'>
-                    <label style="padding-left: 0;" class='control-label col-md-1 col-sm-12' for="gerobstit"><?= $rot_gerobstit ?> </label>
-                    <textarea class='col-md-12 col-sm-12' maxlength="50" style="height: 50px !important; border-color: #ccc;" class='form-control' type="text" name="gerobstit" id="gerobstit" placeholder="<?= $for_gerobstit ?>"  <?= $pro_gerobstit ?> <?= $val_gerobstit ?>></textarea>
+                    <label style="padding-left: 0; padding-top: 0;" class='control-label col-md-1 col-sm-12' for="gerobstit"><?= $rot_gerobstit ?> </label>
+                    <textarea maxlength="50" style="height: 50px !important; border-color: #ccc;" class='form-control' type="text" name="gerobstit" id="gerobstit" placeholder="<?= $for_gerobstit ?>"  <?= $pro_gerobstit ?> <?= $val_gerobstit ?>></textarea>
                 </div>
             </div>
 
         </div>
 
         <div class="row" style="margin-top: 20px;">
-            <?php if ($modo_exibicao == 'tela') { ?>
-                <input style="float:left; margin-right:10px" type="button"  value="<?= $rot_gerdesbot ?>" class="es-default-button" onclick="gerpagexi($('#url_redirect_after').val(), 1, {})">
-            <?php } else { ?>
-                <button style="float:left; margin-right:10px; width: 170px;" type="button" class="close_dialog es-default-button"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
-            <?php } ?>
-            <button style="float:right;" class="es-default-button btn-primary btn submit-button" type="submit" aria-form-id="conitecri" name="resmodbtn" ><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
+            <div class="col-md-12">
+                <?php if ($modo_exibicao == 'tela') { ?>
+                    <input style="float:left; margin-right:10px; margin-left: 5px;" type="button"  value="<?= $rot_gerdesbot ?>" class="es-default-button" onclick="gerpagexi($('#url_redirect_after').val(), 1, {})">
+                <?php } else { ?>
+                    <button style="float:left; margin-right:10px; margin-left: 5px; width: 170px;" type="button" class="close_dialog es-default-button"><i class="fa fa-times-circle"></i> <?= $rot_gerdesbot ?></button>
+                <?php } ?>
+                <button style="float:right; margin-right: 5px;" class="es-default-button btn-primary btn submit-button" type="submit" aria-form-id="conitecri" name="resmodbtn" ><i class="fa fa-check-circle"></i> <?= $rot_gersalbot ?></button>
+            </div>
         </div>
+
     <?php } else { ?>
 
         <div class="row alert alert-danger" >
@@ -167,6 +166,7 @@ $geral = new Geral();
             <input type="button" class="close_dialog" value="<?= $rot_gerdesbot ?>" >
         </div>
     <?php } ?>
+
     <!--Campos para desconto, se houver -->
     <input type="hidden" name="desc_cortesia_tmp" id="desc_cortesia_tmp" value="" />
     <input type="hidden" name="gerdesfat_tmp" id="gerdesfat_tmp" value="" />

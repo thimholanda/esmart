@@ -46,6 +46,10 @@ $geral = new Geral();
             </div>
         </div>
 
+    </div>
+
+    <div class="form-group">
+
 
         <div class="col-md-3 col-sm-4">
             <label class='control-label col-md-12 col-sm-12 <?php if ($desc_cortesia == 'c') echo 'display_none'; ?>' id="gerdestip_label">Unidade</label>
@@ -60,7 +64,7 @@ $geral = new Geral();
 
 
         <div class="col-md-3 col-sm-12">
-            <label class='col-md-12 col-sm-12 control-label'><span id="desconto_rotulo"><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?></span> </label>
+            <label class='col-md-12 col-sm-12 control-label' id="es_desconto_rotulo"><span id="desconto_rotulo"><?= $rot_gerdescon ?>/<?= $rot_gerconacr ?></span> </label>
             <div class="col-md-12 col-sm-12">
                 <input <?php if ($desc_cortesia == 'c') echo "disabled='disabled'"; ?> class='form-control <?php
                 if ($desconto_tipo == 'p')

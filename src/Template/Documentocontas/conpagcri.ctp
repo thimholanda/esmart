@@ -52,55 +52,55 @@ $session = new Session();
                 </div>
             </div>
             <div class="row partida_dados">
-                <div class="col-md-12">
+
+                <div class="col-md-3">
+
                     <div class="col-md-12">
+
                         <a class="dialogo"><?= $rot_convalpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar); ?></b>
                             <div class="dialogo_inner_conpagcri"><h6><?= $rot_conparpag ?></h6>
                                 <div class="table-tooltip">
                                     <table class="table_cliclipes" >
                                         <thead>
-                                            <tr>
-                                                <th><?= $rot_conparres ?></th>
-                                                <th><?= $rot_gerdattit ?></th>
-                                                <th><?= $rot_respagval ?></th>
-                                            </tr>
+                                        <tr>
+                                            <th><?= $rot_conparres ?></th>
+                                            <th><?= $rot_gerdattit ?></th>
+                                            <th><?= $rot_respagval ?></th>
+                                        </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            foreach ($partida_dados['partidas'] as $partida) {
-                                                if ($partida['a_pagar'] != 0) {
-                                                    ?>
-                                                    <tr>
-                                                        <td><?= $partida['partida_item'] ?></td>
-                                                        <td><?= Util::convertDataDMY($partida['partida_liquidacao_data']) ?></td>
-                                                        <td><?= $geral->gersepatr($partida['partida_valor']) ?></td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                            //insere também a partida virtual se for maior que 0
-                                            if ($partida_dados['final_partida']['partida_valor'] != 0) {
+                                        <?php
+                                        foreach ($partida_dados['partidas'] as $partida) {
+                                            if ($partida['a_pagar'] != 0) {
                                                 ?>
                                                 <tr>
-                                                    <td><?= $partida_dados['final_partida']['partida_item'] ?></td>
-                                                    <td><?= Util::convertDataDMY($partida_dados['final_partida']['partida_liquidacao_data']) ?></td>
-                                                    <td><?= $geral->gersepatr($partida_dados['final_partida']['partida_valor']) ?></td>
+                                                    <td><?= $partida['partida_item'] ?></td>
+                                                    <td><?= Util::convertDataDMY($partida['partida_liquidacao_data']) ?></td>
+                                                    <td><?= $geral->gersepatr($partida['partida_valor']) ?></td>
                                                 </tr>
                                                 <?php
                                             }
+                                        }
+                                        //insere também a partida virtual se for maior que 0
+                                        if ($partida_dados['final_partida']['partida_valor'] != 0) {
                                             ?>
-                                        </tbody> 
+                                            <tr>
+                                                <td><?= $partida_dados['final_partida']['partida_item'] ?></td>
+                                                <td><?= Util::convertDataDMY($partida_dados['final_partida']['partida_liquidacao_data']) ?></td>
+                                                <td><?= $geral->gersepatr($partida_dados['final_partida']['partida_valor']) ?></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </a>
+
                     </div>
 
-                    <div class="col-md-6">
-                        <?= $rot_contotpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($pago); ?></b>
-                    </div>
-
-                    <div class="col-md-6">
+                    <div class="col-md-12">
 
                         <a class="dialogo">  <?= $rot_conpreaut ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($pre_autorizado); ?></b>
                             <div class="dialogo_inner_conpagcri"><h6><?= $rot_conpreaut ?></h6>
@@ -135,25 +135,29 @@ $session = new Session();
 
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <?= $rot_consalpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($a_pagar - $pago); ?></b>
                         <span style="display:none" id="somatoria_partida_valor"><?= $geral->gersepatr($a_pagar - $pago); ?></span>
                     </div>
                     <input type="hidden" id="a_pagar" name="a_pagar" value="<?= $a_pagar - $pago ?>" />
 
-                    <div class="col-md-6">
+                </div>
+
+                <div class="col-md-6" style="margin-top: 20px;">
+                    <div class="col-md-12">
+                        <?= $rot_contotpag ?>: <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($pago); ?></b>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="respagval_dados">
                             <p><?= $rot_conapgate ?> <span style="color:red; font-style: italic"><?= Util::convertDataDMY($geral->geragodet(1)) ?></span> : <b><?= $geral->germoeatr() ?> <?= $geral->gersepatr($somatoria_partida_valor) ?></b></p>
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <hr style="display: inline-block; width: 100%;">
-                    </div>
-
                 </div>
 
 
+                </div>
 
             </div>
 
@@ -201,7 +205,7 @@ $session = new Session();
 
     <?php #TODO: Fernando Vale - modificar dados dos radios de acordo com as regras de negócio. ?>
 
-    <div class="row" style="margin-bottom: 30px;">
+    <div class="row" style="margin-bottom: 30px; margin-top: 20px;">
         <div class="col-md-12">
             <div class="col-md-2 col-sm-2">
                 <label class="radio-inline"><input type="radio" name="desc_cortesia" value="d">Pagamento</label>
@@ -256,47 +260,43 @@ $session = new Session();
                 <input  class='form-control cpfcnpj' type="text" name="pagante_cpf_cnpj_1" id='pagante_cpf_cnpj_1' maxlength="18" value='<?= $pagante_cpf_cnpj ?>'  data-validation="cpfcnpj" data-validation-optional="false"  />
             </div>
         </div>
+    </div>
 
-        <div class="col-md-12">
-            <div class="pagamento_forma_dados" id="pagamento_forma_dados_1">
-                <div class="form-group col-md-12" style="margin-bottom: 0;">
-                    <div class="panel es-custom-panel col-md-12 show">
-                        <div class='form-group' style="margin-bottom: 0;">
-                            <label class='col-md-12'><?= $rot_respagfor ?></label>
-                            <div class='col-md-3'>
-                                <select style="margin-bottom: 0;" class='form-control respagreg' name='respagfor_1' id='respagfor_1' aria-linha-pagamento="1" data-validation='required'>
-                                    <option value="" selected="selected"></option>
-                                    <?php foreach ($var_respagfor as $item_respafor) { ?>
-                                        <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>|<?= $item_respafor['contabil_tipo'] ?>">
-                                            <?= $item_respafor["pagamento_forma_nome"] ?>
-                                        </option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
+    <div class="row" class="pagamento_forma_dados" id="pagamento_forma_dados_1" style="margin-top: 0px; padding-top: 30px;">
+        <div class="col-md-12"><div class="col-md-12"><hr style="margin: 0; margin-bottom: 20px; padding: 0 5px;"></div></div>
+        <div class="col-md-3 show">
+            <label class='col-md-12'><?= $rot_respagfor ?></label>
+            <div class='col-md-12'>
+                <select style="margin-bottom: 0;" class='form-control respagreg' name='respagfor_1' id='respagfor_1' aria-linha-pagamento="1" data-validation='required'>
+                    <option value="" selected="selected"></option>
+                    <?php foreach ($var_respagfor as $item_respafor) { ?>
+                        <option value="<?= $item_respafor['pagamento_forma_codigo'] ?>|<?= $item_respafor['contabil_tipo'] ?>">
+                            <?= $item_respafor["pagamento_forma_nome"] ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
 
-                            <input type="hidden" name="linha_pgto_atual" id="linha_pgto_atual" value="" />
-                            <div id="div_saldo_credito_1" style="display: none">
-                                <label  class="col-md-2"><b><?= $rot_concresal ?> <?= $geral->germoeatr() ?></b> </label>
-                                <div class='col-md-2 col-sm-1'>
-                                    <div class="col-md-9">
-                                        <input class='form-control' type="text" readonly name="saldo_credito_1" id="saldo_credito_1">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button  style="padding: 4px;background-color:none" type="button"
-                                                 onclick="concreexi_dialog(1);" >
-                                            <span class='ui-icon ui-icon-search'></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id='div_respagreg_1'>
-                        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+
+            <input type="hidden" name="linha_pgto_atual" id="linha_pgto_atual" value="" />
+            <div id="div_saldo_credito_1" style="display: none">
+                <label  class="col-md-2"><b><?= $rot_concresal ?> <?= $geral->germoeatr() ?></b> </label>
+                <div class='col-md-2 col-sm-1'>
+                    <div class="col-md-9">
+                        <input class='form-control' type="text" readonly name="saldo_credito_1" id="saldo_credito_1">
+                    </div>
+                    <div class="col-md-2">
+                        <button  style="padding: 4px;background-color:none" type="button"
+                                 onclick="concreexi_dialog(1);" >
+                            <span class='ui-icon ui-icon-search'></span>
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div id='div_respagreg_1'>
         </div>
     </div>
 

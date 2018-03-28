@@ -129,7 +129,7 @@ $documento_conta = new DocumentoConta();
                         <input  readonly="readonly" class='form-control' type="text" name="conpretot" id="conpretot" value="<?= $geral->gersepatr($contotpre ?? '') ?>" placeholder="<?= $for_conpretot ?>" <?= $pro_conpretot ?> <?= $val_conpretot ?> />
 
                         <?php if ($documento_conta->condeshab($quarto_status_codigo, $produto_tipo_codigo, $conta_editavel_preco)) { ?>
-                            <button class="es-form-button <?= $ace_condesapl ?> condesapl" title="Modificar valores"  <?= $disabled ?> style="padding:4px;<?php if ($condesval > 0) echo 'background-color:#9bbef7' ?>" id="conbtndes" type="button"
+                            <button class="es-form-button <?= $ace_condesapl ?> condesapl" title="Modificar valores"  <?= $disabled ?> style="right: 5px; padding:4px;<?php if ($condesval > 0) echo 'background-color:#9bbef7' ?>" id="conbtndes" type="button"
                             ><span class='ui-icon ui-icon-pencil'></span></button>
                         <?php } ?>
 

@@ -601,12 +601,12 @@ $(document).on("change", ".desconto_cortesia", function () {
         $("#gerdestip_label").css('display', 'none');
         $("#gerdestip_label").parent().css('display', 'none');
         $("#gerdestip").val('v');
-        $("#gerdesval").css('display', 'none');
+        // $("#gerdesval").css('display', 'none');
         $("#motivos-cortesia").css('display', 'block');
         $("#motivos-desconto").css('display', 'none');
         $("#motivos-acrescimo").css('display', 'none');
-        $("#label-moeda").css('display', 'none');
-        $("#label-moeda").parent().css('display', 'none');
+        $("#es_desconto_rotulo").css('display', 'none');
+        $("#es_desconto_rotulo").parent().css('display', 'none');
         $("#gerdesval").val($("#preco_anterior").val());
     } else {
         $("#gerdesfat").removeAttr('disabled');
@@ -614,12 +614,12 @@ $(document).on("change", ".desconto_cortesia", function () {
         $("#preco_posterior").val($('#preco_anterior').val());
         $("#gerdesfat").val(gervalexi(0));
         $("#gerdesval").val(gervalexi(0));
-        $("#label-moeda").css('display', 'block');
-        $("#label-moeda").parent().css('display', 'block');
+        $("#es_desconto_rotulo").css('display', 'block');
+        $("#es_desconto_rotulo").parent().css('display', 'block');
         $("#gerdestip").css('display', 'block');
         $("#gerdestip_label").parent().css('display', 'inline');
         $("#gerdestip_label").css('display', 'inline');
-        $("#gerdesval").css('display', 'block');
+        // $("#gerdesval").css('display', 'block');
         $("#motivos-cortesia").css('display', 'none');
         if (desconto_cortesia == 'd') {
             $("#motivos-desconto").css('display', 'block');
