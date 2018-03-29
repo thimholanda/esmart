@@ -147,7 +147,7 @@
                      <?php if ($i == 1 && $total_campos_adicionais == 1) { ?>
                         <label class="control-label col-md-12 col-sm-12"><?= $rot_gernumtit ?></label>
                     <?php } elseif ($i == 1) { ?>
-                        <label class="control-label col-md-12 col-sm-12"><?= $rot_gernumtir ?></label>
+                        <label class="control-label col-md-12 col-sm-12">Nº de doc.</label>
                     <?php } ?>
                     <div class="col-md-12 col-sm-12">
                         <input class="form-control h_docnum"   onchange="$('#h_has_changed_<?= $quarto_item ?>_<?= $i ?>').val('1')"  data-validation-depends-on="h_doctip_<?= $quarto_item ?>_<?= $i ?>" data-validation="required"  type="text" name="h_docnum_<?= $quarto_item ?>_<?= $i ?>" id="h_docnum_<?= $quarto_item ?>_<?= $i ?>"

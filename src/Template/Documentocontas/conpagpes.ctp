@@ -95,21 +95,6 @@ $geral = new Geral();
                         </div>
                     </div>
 
-                    <div class="col-md-2">
-                        <div class="col-md-12">
-                            <label ><?= $rot_rescarnum ?></label>
-                            <input class='form-control' type="text" size="12" name="forma_cartao_numero" id="forma_cartao_numero" value='<?= $forma_cartao_numero ?? '' ?>'>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div class="col-md-12">
-                            <label><?= $rot_respagbnc ?></label>
-                            <input class='form-control' type="text" size="3" name="forma_banco" id="forma_banco" value='<?= $forma_banco ?? '' ?>'>
-                        </div>
-                    </div>
-
                     <div class='col-md-2 col-sm-3'>
                         <div class="col-md-12">
                             <label for="respagfor" <?= $pro_respagfor ?>><?= $rot_respagfor ?> </label>
@@ -134,6 +119,22 @@ $geral = new Geral();
                 </div>
 
                 <div class="form-group row">
+
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <label ><?= $rot_rescarnum ?></label>
+                            <input class='form-control' type="text" size="12" name="forma_cartao_numero" id="forma_cartao_numero" value='<?= $forma_cartao_numero ?? '' ?>'>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <label><?= $rot_respagbnc ?></label>
+                            <input class='form-control' type="text" size="3" name="forma_banco" id="forma_banco" value='<?= $forma_banco ?? '' ?>'>
+                        </div>
+                    </div>
+
                     <div class="col-md-2">
                         <div class="col-md-12">
                             <label><?= $rot_respagagc ?></label>
@@ -147,7 +148,8 @@ $geral = new Geral();
                             <input class='form-control' type="text" size="12" name="forma_conta_corrente" id="forma_conta_corrente"   value='<?= $forma_conta_corrente ?? '' ?>'>
                         </div>
                     </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-3">
                         <div class="col-md-12">
                             <label for="conresdep" <?= $pro_conresdep ?>>Referência de depósito ou transferência</label>
                             <input class='form-control' type="text" name="respagref" id="respagref" value="<?= $respagref ?? '' ?>" placeholder="<?= $for_respagref ?>"  <?= $pro_respagref ?> <?= $val_respagref ?> />
@@ -196,15 +198,15 @@ $geral = new Geral();
                         </div>
                     </div>
 
-                </div>
-
-                <div class="row" style="margin-top: 30px;">
-                    <div class="col-md-12">
-                        <div class="col-md-12">
+                    <div class="col-md-6" style="height: 55px; position: relative;">
+                        <div class="col-md-12"  style="position: absolute; bottom: 0; right: 5px;">
                             <button style="float: right;" class="es-default-button form-control btn-primary  submit-button" aria-form-id="conpagpes" type="submit" name="btn_exi_pag" id="btn_exi_pag"><i class="fa fa-search"></i> Pesquisar</button>
                         </div>
                     </div>
+
                 </div>
+
+
 
             </form>
         </div>
